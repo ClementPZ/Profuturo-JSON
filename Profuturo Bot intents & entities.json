@@ -4,8 +4,7 @@
     [
       { "pathName": "Conversation Utils",
         "pathIntents": [
-          {
-            "intentName": "invite_to_bot",
+          { "intentName": "invite_to_bot",
             "comment": "Diego Only",
             "isLast": true,
             "training": [
@@ -26,18 +25,12 @@
               "Muchas gracias, acabo de invitarle a regsitrase :)"
             ]
           },
-          {
-            "intentName": "onboard_tecnical_team",
+          { "intentName": "onboard_tecnical_team_intro",
             "training": ["Quiero registrar a las personas que darán los vistos buenos"],
-            "entities": [{
-              "entityName": "areas_quantities",
-              "entity": "sys.number",
-              "list": false,
-              "mandatory": false,
-              "default": 4
-            }],
+            "entities": [],
             "response": [
-              "OK, puedes darme la información de la persona ${server_personCount}"
+              "Te voy a pedir los numeros de telefono de las personas que haran la demo, necistamos 3 personas ademas de ti",
+              "//> init flijo del intento onboard_tecnical_team_contact_information"
             ],
             "outputContext": [
               {
@@ -46,21 +39,14 @@
               }
             ]
           },
-          {
+          { "intentName": "onboard_tecnical_team_contact_information",
             "isLast": true,
-            "intentName": "onboard_tecnical_team_contact_information",
             "inputContext": ["onboard_tecnical_team"],
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [
             {
-              "prompt": "Puedes darme el nombre del área por favor?",
-              "entityName": "vobo_area_name",
-              "entity": "userArea",
-              "list": false
-            },
-            {
-              "prompt": "Puedes decirme cual es el telefono del representante del area ${vobo_area_name}?",
-              "entityName": "vobo_representant_phone",
+              "prompt": "Puedes decirme cual es el telefono del representante del area ${server_areaName}?",
+              "entityName": "area_representant_phone",
               "entity": "sys.phone_number",
               "list": false
             }],
@@ -74,8 +60,7 @@
               }
             ]
           },
-          {
-            "intentName": "reset",
+          { "intentName": "reset",
             "isLast": true,
             "training": [
               "Quiero hacer la demo desde cero",
@@ -85,12 +70,11 @@
             ],
             "entities": [],
             "response": [
-              "Entendido, acabo de borrar la conversación y de reiniciar el proceso a cero",
-              "Para empezar de nuevo, di hola"
+              "Entendido, acabo de borrar la conversación y de reiniciar el proceso",
+              "Para empezar de nuevo la demo, dime hola :)"
             ]
           },
-          {
-            "intentName": "hard_reset",
+          {"intentName": "hard_reset",
             "comment": "Diego Only",
             "isLast": true,
             "training": [
@@ -101,7 +85,7 @@
             ],
             "entities": [],
             "response": [
-              "OK, he hecho un reboot de todo el sistema: tienes que añadir de nuevo los solicitantes",
+              "OK, he hecho un reboot de todo el sistema: tienes que añadir de nuevo los solicitantes y represantantes de cada area (son 3)",
               "Para empezar, simplemente dime hola"
             ]
           }
@@ -109,8 +93,7 @@
       },
       { "pathName": "Sign In",
         "pathIntents": [
-          {
-            "intentName": "greetings",
+          { "intentName": "greetings",
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
             "response": [
@@ -118,9 +101,8 @@
               "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos porfavor?"
             ]
           },
-          {
+          { "intentName": "user_selfie",
             "isLast": true,
-            "intentName": "user_selfie",
             "training": ["http://pic.jpeg"],
             "entities": [
               {
@@ -138,7 +120,7 @@
             "outputContext": [
               {
                 "name": "user_signed_in",
-                "lifespanCount": "10"
+                "lifespanCount": "20"
               }
             ]
           }
@@ -148,11 +130,7 @@
         "pathIntents": [
           {
             "intentName": "start_vobo",
-            "inputContext": [
-              "go_vobo_solicitant_contract",
-              "go_vobo_solicitant_confirm_service",
-              "go_vobo_solicitant_invoice"
-            ],
+            "inputContext": ["go_vobo"],
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
             "response": [
@@ -197,11 +175,7 @@
       { "pathName": "Sign",
         "pathIntents": [
           { "intentName": "greetings",
-            "inputContext": [
-              "go_finanzas_sign_contract",
-              "go_proveedor_sign_contract",
-              "go_finanzas_validate_payment"
-            ],
+            "inputContext": ["go_sign"],
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
             "response": [
@@ -244,7 +218,7 @@
       },
       { "pathName": "Greetings",
         "pathIntents": [
-          { "intentName": "greetings_onboarding",
+          { "intentName": "greetings",
             "training": [
               "Hola",
               "Buenos dias",
@@ -255,7 +229,8 @@
               "Bonjour"
             ],
             "entities": [],
-            "response": ["//> Greeting Second step"]
+            "response": ["//> Greeting Second step"],
+            "comment": "if user is known => next step is Sign, if user is unknown => next step is Onboarding"
           }
         ]
       },
@@ -266,13 +241,13 @@
             "entities": [],
             "response": [
               "Hola, me llamo Barnabet, soy el asistante virtual de Profuturo",
-              "Estoy aqui para agilizar y proteger tus tramites con nosotros, a traves de esta conversación y de blockchain SEIF, sientete en seguridad conmigo :)",
+              "Estoy aqui para agilizar y proteger tus tramites con nosotros, a traves de esta conversación y blockchain SEIF, sientete en seguridad conmigo :)",
               "Antes de seguir, necesito primero registrarte",
               "Empezemos?"
             ]
           },
           { "intentName": "get_user_basics",
-            "inputContext": ["onboard_process_user_unknown"],
+            "inputContext": [""],
             "training": ["si"],
             "entities": [
               {
@@ -325,15 +300,27 @@
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [
               {
-                "prompt": "Me podrias proporcionar una foto de tu INE porfavor?",
-                "entityName": "userINE",
+                "prompt": "Me podrias proporcionar una foto de tu credential de identidad?",
+                "entityName": "userCredential1",
                 "entity": "sys.url",
                 "list": false
               },
               {
-                "prompt": "Gracias, y me podrias proporcionar una foto de tu CURP tambien?",
+                "prompt": "Gracias, y el reverso por favor?",
+                "entityName": "userCredential2",
+                "entity": "sys.url",
+                "list": false
+              },
+              {
+                "prompt": "Gracias, y me podrias proporcionar tu CURP tambien?",
                 "entityName": "userCURP",
                 "entity": "sys.any",
+                "list": false
+              },
+              {
+                "prompt": "Y por fin un foto de tu firma en un papel blanco por favor",
+                "entityName": "userPaperSignature",
+                "entity": "sys.url",
                 "list": false
               }
             ],
@@ -352,8 +339,8 @@
                 "list": false
               }
             ],
-            "Description": " Siguiente paso depende de la compañia (Profuturo u otra), puede ser internUser (Profuturo) u externalUser (other) ",
-            "response": ["Muchas gracias"]
+            "response": ["Muchas gracias"],
+            "Comment": " Siguiente paso depende de la compañia (Profuturo u otra), puede ser internUser (Profuturo) u externalUser (other)"
           },
           { "intentName": "get_company_infos_internUser",
             "training": ["//> init flujo del intento ${intentName}"],
@@ -370,16 +357,6 @@
               "Vamos a confirmar tu registro, por eso necesitaria que me envíes por favor una foto tuya tomada en los siguientes 3 minutos",
               "Utilizaré esa fotografía para hacer un reconocimiento facial e identificarte en cuanto querras usar mis servicios",
               "//> init flujo del intento user_onboarding.get_user_picture"
-            ],
-            "outputContext": [
-              {
-                "name": "General Services",
-                "lifespanCount": "3"
-              },
-              {
-                "name": "2FA",
-                "lifespanCount": "3"
-              }
             ]
           },
           { "intentName": "get_company_infos_externalUser",
@@ -389,6 +366,12 @@
                 "prompt": "Me podrias por favor proporcionar la dirección postal de tu empresa?",
                 "entityName": "userCompanyAddress",
                 "entity": "sys.address",
+                "list": false
+              },
+              {
+                "prompt": "Y su numero RFC por favor?",
+                "entityName": "userCompanyRFC",
+                "entity": "RFC",
                 "list": false
               }
             ],
@@ -436,12 +419,12 @@
             ]
           },
           { "intentName": "cloture_onboarding",
-            "inputContext": ["onboarding_auth"],
+            "inputContext": ["onboarding_auth", "2FA_authenticated"],
             "training": ["//> autenticado, siguiente paso"],
             "entities": [],
             "response": [
               "Excellente ${userName}, estas registrado en mis contactos",
-              "Te guarde como: ${userName} ${userLastName1} ${userLastName2}, de la compania SEIF con sede a rio alba, 7, roma norte, 06900, Mexico DF. Tu ID numerica (Hash ID) es afc25667tTYUuijkHx526yw 98ydhuowklj",
+              "Te guarde como: ${userName} ${userLastName1} ${userLastName2}, de la compania ${userCompany} con sede a ${userCompanyAddress}. Tu ID numerica (Hash ID) es ${server_blockchainID}",
               "Me quedo a tu disposición cualquier cosa"
             ]
           }
@@ -449,8 +432,7 @@
       },
       { "pathName": "Authentication",
         "pathIntents": [
-          {
-            "intentName": "2FA_generic_init",
+          { "intentName": "2FA_generic_init",
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
             "response": [
@@ -458,16 +440,14 @@
               "//> init flujo del intento authentication.2FA_generic_confirmation}"
             ]
           },
-          {
-            "intentName": "2FA_generic_confirmation",
+          { "intentName": "2FA_generic_confirmation",
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
             "response": [
               "Me lo podrias proporcionar por favor?"
             ]
           },
-          {
-            "intentName": "2FA_generic_authenticate",
+          { "intentName": "2FA_generic_authenticate",
             "training": [
               "el codigo es 582901",
               "me ha llegado el código 627819",
@@ -478,7 +458,7 @@
             "entities": [
               {
                 "prompt": "Por favor, me podrías enviar el codigo que recibiste?",
-                "entityName": "authenticationCOde",
+                "entityName": "authenticationCode",
                 "entity": "code2FA",
                 "list": false
               }
@@ -488,12 +468,18 @@
               "//> autenticado, siguiente paso"
             ]
           }
+        ],
+        "outputContext": [
+          {
+            "name": "2FA_authenticated",
+            "lifespanCount": "6"
+          }
         ]
       },
       { "pathName": "Solicitud creation path",
         "pathIntents": [
-          {
-            "intentName": "solicitud_intro",
+          { "intentName": "solicitud_intro",
+            "inputContext": ["user_signed_in"],
             "training": [
               "Quiero hacer una solicitud de servicio",
               "Quiero contratar un man",
@@ -503,8 +489,7 @@
               "Quiero crear una solicitud",
               "Contratar servicio",
               "Necesito un servicio",
-              "Quiero crear un servicio",
-              "Servicio"
+              "Quiero crear un contrato"
             ],
             "entities": [],
             "response": [
@@ -521,9 +506,8 @@
               }
             ]
           },
-          {
-            "intentName": "get_solicitud_infos",
-            "inputContext": ["start_solicitud"],
+          { "intentName": "get_solicitud_infos",
+            "inputContext": ["start_solicitud", "user_signed_in"],
             "training": ["Si", "Go", "vamos", "empezemos"],
             "entities": [],
             "response": [
@@ -537,10 +521,14 @@
               }
             ]
           },
-          {
-            "intentName": "get_solicitud_infos_serviceType",
+          { "intentName": "get_solicitud_infos_serviceType",
             "inputContext": ["get_solicitud_provider_infos"],
-            "training": ["Servicio Tipo A", "Mi contrato es de tipo B"],
+            "training": [
+              "Servicio Tipo A", 
+              "Mi contrato es de tipo B",
+              "A",
+              "Tipo c"
+            ],
             "entities": [
               {
                 "prompt": ["Cual es el tipo de servicio que quieres contratar?"],
@@ -560,8 +548,7 @@
               }
             ]
           },
-          {
-            "intentName": "get_solicitud_infos_serviceDescription",
+          { "intentName": "get_solicitud_infos_serviceDescription",
             "inputContext": ["get_solicitud_provider_infos"],
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [
@@ -584,8 +571,7 @@
               }
             ]
           },
-          {
-            "intentName": "get_solicitud_infos_serviceDeadLine",
+          { "intentName": "get_solicitud_infos_serviceDeadLine",
             "inputContext": ["get_solicitud_provider_infos"],
             "training": ["La fecha limite será 20/11/2020"],
             "entities": [
@@ -610,7 +596,7 @@
             ]
           },
           {
-            "intentName": "search_collect_information",
+            "intentName": "search_service_provider",
             "inputContext": ["get_solicitud_provider_infos"],
             "training": [
               "AIGA970806AS5 y el representante es Aradia Donnelle",
@@ -636,10 +622,11 @@
                 "mandatory": false
               },
               {
+                "prompt": "Me podrías proporcionar el nombre de tu contacto porfavor? ",
                 "entityName": "serviceProviderRepresentantName1",
                 "entity": "sys.given_name",
                 "list": true,
-                "mandatory": false
+                "mandatory": true
               }
             ],
             "response": [
@@ -658,7 +645,7 @@
             ]
           },
           {
-            "intentName": "search_collect_information_fallback",
+            "intentName": "search_solicitud_provider_fallback",
             "inputContext": ["search_solicitud_provider"],
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
@@ -685,7 +672,7 @@
               }
             ],
             "response": [
-              "la propuesta ha sido regirstrada, muchas gracias",
+              "la propuesta ha sido registrada, muchas gracias",
               "//> init flujo del intento solicitud_creation_path.solicitud_aprovement"
             ]
           },
@@ -774,18 +761,12 @@
             "response": [
               "${server_solicitudOwner} creo una solicitud de prestación de servicio par la compañía ${serviceProviderName1}",
               "Unfortudanamente, no tenemos el registro de listas negras corespondiente", 
-              "Me podrias ayudar enviandome este documento porfavor?"],
-            "outputContext": [
-                {
-                  "name": "black_list_auth",
-                  "lifespanCount": "0"
-                }
-              ]
+              "Me podrias ayudar enviandome este documento porfavor?"]
           },
           {
             "intentName": "doc_user_blacklist",
             "isLast": 0,
-            "inputContext": ["user_signed_in"],
+            "inputContext": ["user_signed_in", "user_black_list_auth"],
             "training": ["http://www.doc.pdf/"],
             "entities": [
               {
@@ -803,18 +784,22 @@
         "pathIntents": [
           {
             "intentName": "notification_solicitant_vobo_contract",
-            "inputContext": [],
+            "inputContext": [""],
             "training": ["//> init flujo del intento ${intentName}"],
             "entities": [],
             "response": [
               "Hola ${server_solicitudOwner}, tengo noticias concernando tu solicitud de prestación de servicio :)",
-              "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
-              "//> init flujo del intento sign_in.user_selfie"
+              "Por motivos de seguridad, necesito primero identificarte para poder brindarte mas información",
+              "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos por favor?"
             ],
             "outputContext": [
               {
                 "name": "service_solicitant_vobo_auth",
                 "lifespanCount": "6"
+              },
+              {
+                "name": "sign_in",
+                "lifespanCount": "5"
               }
             ]
           },
@@ -852,12 +837,16 @@
             "entities": [],
             "response": [
               "Perfecto",
-              "//> init flujo del intento vobo.greetings"
+              "//> init flujo del intento vobo.start_vobo"
             ],
             "outputContext": [
               {
                 "name": "go_vobo_solicitant_contract",
-                "lifespanCount": "3"
+                "lifespanCount": "0"
+              },
+              {
+                "name": "go_vobo",
+                "lifespanCount": "5"
               }
             ]
           },
@@ -881,12 +870,16 @@
             "entities": [],
             "response": [
               "Hola ${server_userFinanzas}, necesitaria que revises y firmes unos de mis contratos por favor ",
-              "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
-              "//> init flujo del intento sign_in.user_selfie"
+              "Por motivos de seguridad, necesito primero identificarse para poder brindarte mas información", 
+              "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos porfavor?"
             ],
             "outputContext": [
               {
                 "name": "finanzas_sign_contract_auth",
+                "lifespanCount": "6"
+              },
+              {
+                "name": "sign_in",
                 "lifespanCount": "6"
               }
             ]
@@ -904,9 +897,14 @@
             ],
             "outputContext": [
                 {
-                  "name": "go_finanzas_sign_contract",
+                  "name": "finanzas_sign_contract_auth",
                   "lifespanCount": "0"
+                },
+                {
+                  "name": "go_finanzas_sign_contract",
+                  "lifespanCount": "5"
                 }
+
               ]
           },
           {
@@ -922,11 +920,15 @@
             "entities": [],
             "response": [
               "Perfecto",
-              "//> init flujo del intento sign.greetings"
+              "//> init flujo del intento sign.greeetings"
             ],
             "outputContext": [
               {
                 "name": "go_finanzas_sign_contract",
+                "lifespanCount": "3"
+              },
+              {
+                "name": "go_sign",
                 "lifespanCount": "3"
               }
             ]
