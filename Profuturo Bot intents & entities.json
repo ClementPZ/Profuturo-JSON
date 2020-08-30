@@ -17,14 +17,14 @@
             "Agregar nuevo participante como solicitante",
             "Agregar nuevo solicitante",
             "Incorporar nuevo solicitante", 
-            "Incrementar nuevo creador de solicitud",,
+            "Incrementar nuevo creador de solicitud",
             "Integrar nuevo solicitante",
             "Dar de alta participante con papel de solicitante",
             "Entrar nuevo solicitante"
           ],
           "entities": [
             {
-              "prompt": "Claro, podrías escribir su número de telefono?",
+              "prompt": "Claro ¿podrías escribir su número de telefono?",
               "entityName": "solicitante_number",
               "entity": "sys.phone_number",
               "list": false
@@ -56,7 +56,7 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
           {
-            "prompt": "Por favor escribe el teléfono del representante del área ${server_areaName}?",
+            "prompt": "Por favor escribe el teléfono del representante del área ${server_areaName}",
             "entityName": "area_representant_phone",
             "entity": "sys.phone_number",
             "list": false
@@ -137,8 +137,7 @@
     },
     { "pathName": "Vobo",
       "pathIntents": [
-        {
-          "intentName": "start_vobo",
+        { "intentName": "start_vobo",
           "inputContext": ["go_vobo"],
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
@@ -155,10 +154,29 @@
         {
           "intentName": "2FA_auth_vobo",
           "inputContext": "get_2FA_code_vobo",
-          "training": ["351261", "748349", "736278"],
+          "training": [
+            "Tu código es 582901",
+            "He recibido el código 627819",
+            "He recibido el código: 231212",
+            "351261", 
+            "748349", 
+            "736278",
+            "El numero que recibi es 351261",
+            "El codigo es 748349",
+            "Recibi este codigo 736278",
+            "Me enviaron 647282",
+            "Es 710498",
+            "La contraseña es 839201",
+            "Llegó 794573",
+            "Me llegó el numero 987023",
+            "El codigo que me ha llegado es el 749202",
+            "Consegui el numero 120723",
+            "He recibido el codigo nº 372910",
+            "Te confirmo el numero 619304"
+          ],
           "entities": [
             { 
-              "prompt": "Por favor escribe el código para confirmar tu VOBO",
+              "prompt": "Podrias por favor enviarme el código que recibiste para confirmar tu VOBO?",
               "entityName": "code2FA", 
               "entity": "code2FA", 
               "list": false 
@@ -198,7 +216,23 @@
         },
         { "intentName": "2FA_auth_vobo",
           "inputContext": "get_2FA_code_signature",
-          "training": ["351261", "748349", "736278"],
+          "training": [
+            "351261", 
+            "748349", 
+            "736278",
+            "El numero que recibi es 351261",
+            "El codigo es 748349",
+            "Recibi este codigo 736278",
+            "Me enviaron 647282",
+            "Es 710498",
+            "La contraseña es 839201",
+            "Llegó 794573",
+            "Me llegó el numero 987023",
+            "El codigo que me ha llegado es el 749202",
+            "Consegui el numero 120723",
+            "He recibido el codigo nº 372910",
+            "Te confirmo el numero 619304"
+          ],
           "entities": [
             { 
               "prompt": "Por favor, escribe el código para autenticar tu firma",
@@ -228,12 +262,17 @@
         { "intentName": "greetings",
           "training": [
             "Hola",
-            "Buenos dias",
             "Ola",
+            "Buenos dias",
+            "Buenas noches",
+            "Buenas tardes",
             "Ciao",
+            "Helo",
             "Hello",
             "Buenas",
-            "Bonjour"
+            "Bonjour",
+            "Hey",
+            "Hola hola"
           ],
           "response": ["//> Greeting Second step"],
           "comment": "if user is known => next step is Sign, if user is unknown => next step is Onboarding"
@@ -248,11 +287,26 @@
             "Hola, soy Barnabet la asistante virtual de Profuturo",
             "Mi misión es ayudarte a agilizar y proteger tus trámites con nosotros, a través de está conversación y blockchain SEIF, sientete en seguridad conmigo :)",
             "Antes de seguir, necesitas registrarte",
-            "Empezamos?"
+            "¿Empezamos?"
           ]
         },
         { "intentName": "get_user_basics",
-          "training": ["si"],
+          "training": [
+            "si",
+            "listo",
+            "go",
+            "ok",
+            "vamos",
+            "empezamos",
+            "quiero empezar",
+            "iniciar",
+            "quiero iniciar", 
+            "Iniciamos",
+            "Start registración",
+            "empezar mi registración",
+            "Sign up",
+            "Start"
+          ],
           "entities": [
             {
               "prompt": "Por favor escribe tu(s) nombre(s)",
@@ -288,7 +342,7 @@
               "list": false
             },
             {
-              "prompt": "y tu correo electronico?",
+              "prompt": "¿y tu correo electronico?",
               "entityName": "userMail",
               "entity": "sys.email",
               "list": false
@@ -343,13 +397,13 @@
             }
           ],
           "response": ["Muchas gracias"],
-          "Comment": " Siguiente paso depende de la compañía (Profuturo u otra), puede ser internUser (Profuturo) u externalUser (other)"
+          "Comment": "Siguiente paso depende de la compañía (Profuturo u otra), puede ser internUser (Profuturo) u externalUser (other)"
         },
         { "intentName": "get_company_infos_internUser",
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Para qué área trabajas?",
+              "prompt": "¿Para qué área trabajas?",
               "entityName": "userArea",
               "entity": "companyArea",
               "list": false
@@ -453,7 +507,21 @@
             "He recibido el código 627819",
             "He recibido el código: 231212",
             "123121",
-            "12312"
+            "351261", 
+            "748349", 
+            "736278",
+            "El numero que recibi es 351261",
+            "El codigo es 748349",
+            "Recibi este codigo 736278",
+            "Me enviaron 647282",
+            "Es 710498",
+            "La contraseña es 839201",
+            "Llegó 794573",
+            "Me llegó el numero 987023",
+            "El codigo que me ha llegado es el 749202",
+            "Consegui el numero 120723",
+            "He recibido el codigo nº 372910",
+            "Te confirmo el numero 619304"
           ],
           "entities": [
             {
@@ -482,21 +550,25 @@
           "inputContext": ["user_signed_in"],
           "training": [
             "Quiero hacer una solicitud de servicio",
-            "Quiero contratar",
-            "Nuevo servicio",
+            "Quiero contratar un proveedor",
             "Contratación de servicio",
+            "Nuevo servicio",
             "Solicitud de servicio",
             "Quiero crear una solicitud",
             "Contratar servicio",
             "Necesito un servicio",
-            "Quiero crear un contrato"
+            "Quiero crear un contrato",
+            "crear petición",
+            "establecer solicitud de prestación de servicio",
+            "redactar una nueva demanda",
+            "quiero registrar una nueva solicitud"
           ],
           "response": [
             "Entendido, necesitaré que tengas lista la siguiente información:",
             "Tipo de servicio, A, B o C, puedes comprobar esta información en el link www.doc.profuturo.mx",
             "Descripción y justificación del servicio",
-            "Razón social, RFC y propuesta del proveedor que quieres contratar",
-            "Empezamos?"
+            "Razón social, RFC, contactos y propuesta del proveedor que quieres contratar",
+            "¿Empezamos?"
           ],
           "outputContext": [
             {
@@ -507,7 +579,22 @@
         },
         { "intentName": "get_solicitud_infos",
           "inputContext": ["start_solicitud", "user_signed_in"],
-          "training": ["Si", "Go", "vamos", "empezemos"],
+          "training": [
+            "si",
+            "vamos",
+            "listo",
+            "go",
+            "ok",
+            "empezemos",
+            "quiero empezar",
+            "iniciar",
+            "quiero iniciar", 
+            "Iniciamos",
+            "Start registración",
+            "empezar mi registración",
+            "Sign up",
+            "Start"
+          ],
           "response": [
             "Muy bien, qué tipo de servicio quieres contratar?",
             "Por ejemplo, servicio 'Tipo A', escribe 'Tipo A' o simplemente 'A'"
@@ -522,14 +609,24 @@
         { "intentName": "get_solicitud_infos_serviceType",
           "inputContext": ["get_solicitud_provider_infos"],
           "training": [
-            "Servicio Tipo A", 
-            "Mi contrato es tipo B",
+            "Servicio Tipo A",
+            "mi servicio es de tipo C",
+            "Mi contrato es de tipo B",
             "A",
-            "Tipo c"
+            "Tipo c",
+            "tipo B",
+            "tipo A",
+            "es un contrato de tipo A",
+            "B",
+            "C",
+            "Quiero crear un servicio de tipoo A",
+            "sera tipo b",
+            "sera un servicio de tipo A",
+            "crear servicio C"          
           ],
-          "entities": [
+          "entities": [ 
             {
-              "prompt": ["Qué tipo de servicio que quieres contratar?"],
+              "prompt": ["Qué tipo de servicio quieres contratar?"],
               "entityName": "serviceType",
               "entity": "serviceType",
               "list": false
@@ -551,16 +648,17 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "entityName": "serviceDescription",
-              "entity": "sys.any",
-              "list": false,
               "prompt": [
                 "Por ejemplo 'Servicio de limpieza de la sucursal de Profuturo Insurgentes Sur'"
-              ]
+              ],
+              "entityName": "serviceDescription",
+              "entity": "sys.any",
+              "list": false
             }
           ],
           "response": [
-            "Ok, cuál es la fecha límite para recibir la prestación de éste servicio?"
+            "Gracias", 
+            "¿cuál es la fecha límite para recibir la prestación de éste servicio?"
           ],
           "outputContext": [
             {
@@ -571,15 +669,28 @@
         },
         { "intentName": "get_solicitud_infos_serviceDeadLine",
           "inputContext": ["get_solicitud_provider_infos"],
-          "training": ["La fecha limite será 20/11/2020"],
+          "training": [
+            "La fecha límite será 20/11/2020",
+            "es el martes 23 de marzo",
+            "El servicio es debido antes de 12/12/2021",
+            "Quiero el servicio para antes del 21 de april 2022",
+            "05/07/21",
+            "jueves 12 de enero 2021",
+            "12/01/2021",
+            "el terminó es el 03/24/20",
+            "me gustaria obtener este servicio antes del jueves 23 de mayo",
+            "la fecha limite para obtener este servicio es el martes 5 de junio",
+            "limite el 23 de mayo 2021",
+            "la deadline es el 23 de mayo 2021"
+          ],
           "entities": [
             {
-              "entityName": "serviceDeadline",
-              "entity": "sys.date",
-              "list": false,
               "prompt": [
                 "Por favor escribe la fecha límite para la prestación de éste servicio (usa 2 dígitos para el mes y 4 dígitos para el año)"
-              ]
+              ],
+              "entityName": "serviceDeadline",
+              "entity": "sys.date",
+              "list": false
             }
           ],
           "response": [
@@ -604,31 +715,35 @@
             "AZZA977346AS5",
             "Profuturo",
             "Clement Picard",
-            "Eduardo Mosqueda Chavez TYSH716189TR8"
+            "Eduardo Mosqueda Chavez TYSH716189TR8",
+            "el RFC es TYSH716189TR8 y el represnatante es Jesus Fuentes", 
+            "Mi contacto es Alessandro Chavez",
+            "Mi proveedor es EY y mi contacto es Clement Picard Zivy",
+            "SEIF"
           ],
           "entities": [
             {
-              "entityName": "serviceProviderName1",
+              "entityName": "serviceProvider1Name",
               "entity": "companyName",
               "list": false,
               "mandatory": false
             },
             {
-              "entityName": "serviceProviderRFC1",
+              "entityName": "serviceProvider1RFC",
               "entity": "RFC",
               "list": false,
               "mandatory": false
             },
             {
-              "prompt": "Por favor escribe el nombre del representante legal ",
-              "entityName": "serviceProviderRepresentantName1",
+              "prompt": "Por favor escribe el nombre del representante legal",
+              "entityName": "serviceProvider1Representant1Name",
               "entity": "sys.given_name",
               "list": true
             }
           ],
           "response": [
-            "Encontré a ${serviceProviderName1}, nº RFC ${serviceProviderRFC1}, represantada por: ${serviceProviderRepresentantName1}",
-            "es correcto?"
+            "Encontré a ${serviceProvider1Name}, nº RFC ${serviceProvider1RFC}, represantada por: ${serviceProvider1Representant1Name}",
+            "¿es correcto?"
           ],
           "outputContext": [
             {
@@ -644,11 +759,24 @@
         {
           "intentName": "invite_solicitud_provider",
           "inputContext": ["search_solicitud_provider"],
-          "training": ["No"],
+          "training": [
+            "No",
+            "No es cierto",
+            "Nope",
+            "Por nada",
+            "Eso no es",
+            "No es mi proveedor", 
+            "no, es Jesus Fuentes", 
+            "no, mi proveedor es SEIF",
+            "Es ioncorrecto",
+            "Es erroneado",
+            "Esta información es inexacto",
+            "Esta información es equivocada"
+          ],
           "entities": [
             {
-              "prompt": "Ahora escribe el número de teléfono del contacto",
-              "entityName": "serviceProviderRepresentantPhone",
+              "prompt": "Para poder seguir con tu solicitud, por favor escribe el número de teléfono mobil del contacto",
+              "entityName": "serviceProvider1Representant1Phone",
               "entity": "sys.phone_number",
               "list": false
             }
@@ -661,17 +789,30 @@
         {
           "intentName": "get_solicitud_docs",
           "inputContext": ["search_solicitud_provider"],
-          "training": ["Si"],
+          "training": [
+            "Sí, es mi proveedor",
+            "Si", 
+            "listo",
+            "correcto",
+            "Exacto",
+            "perfecto",
+            "andale",
+            "acertado",
+            "Es bien mi proveedor",
+            "Es cierto",
+            "justo",
+            "verdadero"
+          ],
           "entities": [
             {
-              "prompt": "Por favor sube la propuesta de:${serviceProviderName1} (en formato: png, pdf, ppt)",
-              "entityName": "serviceProviderProposal1",
+              "prompt": "Por favor sube la propuesta de:${serviceProvider1Name} (en formato: png, pdf, ppt)",
+              "entityName": "serviceProvider1Proposal",
               "entity": "sys.url",
               "list": false
             }
           ],
           "response": [
-            "Propuesta registrada con éxito!",
+            "¡Propuesta registrada con éxito!",
             "//> init flujo del intento solicitud_creation_path.solicitud_aprovement"
           ]
         },
@@ -680,7 +821,7 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
             "Ahora verifico que todos los documentos necesarios para tu solicitud estén completos",
-            "Listo! La propuesta de ${serviceProviderName1} ha sido registrada para una prestación de servicio de: ${serviceDescripción} con fecha limite ${serviceDeadline}",
+            "Listo! La propuesta de ${serviceProvider1Name} ha sido registrada para una prestación de servicio de: ${serviceDescripción} con fecha limite ${serviceDeadline}",
             "Por favor confirma que toda la información es correcta"
           ],
           "outputContext": [
@@ -693,7 +834,20 @@
         {
           "intentName": "solicitud_outro",
           "inputContext": ["request_approvement"],
-          "training": ["sí"],
+          "training": [
+            "sí",
+            "Es correcto", 
+            "Si", 
+            "correcto",
+            "Exacto",
+            "perfecto",
+            "andale",
+            "acertado",
+            "Es bien mi proveedor",
+            "Es cierto",
+            "justo",
+            "verdadero"
+          ],
           "response": [
             "Perfecto, el id de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
             "Muchas gracias, te mantendré al tanto de los siguientes pasos ;)",
@@ -734,18 +888,18 @@
           "inputContext": ["user_signed_in", "user_black_list_auth"],
           "training": ["//> siguiente paso después del sign in"],
           "response": [
-            "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProviderName1}",
+            "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProvider1Name}",
             "Aún no contamos con la verificación en listas negras corespondientes", 
             "Por favor envíame por esté medio los documentos y evidencias"]
         },
         {
           "intentName": "doc_user_blacklist",
-          "isLast": 0,
+          "isLast": "0",
           "inputContext": ["user_signed_in", "user_black_list_auth"],
           "training": ["http://www.doc.pdf/"],
           "entities": [
             {
-              "prompt": "${conversation.serviceProviderName1}, por favor sube los documentos y evidencias ante listas negras de la empresa  ",
+              "prompt": "${conversation.serviceProvider1Name}, por favor sube los documentos y evidencias ante listas negras de la empresa  ",
               "entityName": "blackList",
               "entity": "sys.url",
               "list": false
@@ -804,7 +958,18 @@
             "ya estoy listo por favor", 
             "go", 
             "listo", 
-            "vobo"
+            "vamos",
+            "ok",
+            "vobo",
+            "vo.no",
+            "quiero generar mi visto bueno", 
+            "visto bueno",
+            "quiero dar mi visto bueno", 
+            "quiero dar mi visto bo",
+            "quiero dar mi vo bueno",
+            "quiero dar mi vistobueno",
+            "quiero dar mi vistobo",
+            "quiero dar mi vobueno",     
           ],
           "response": [
             "Perfecto",
@@ -857,7 +1022,7 @@
           "inputContext": ["user_signed_in", "finanzas_sign_contract_auth"],
           "training": ["//> siguiente paso después del sign in"],
           "response": [
-            "${server_solicitudOwner} creó una solicitud de prestación de servicios con la empresa: ${serviceProviderName1}",
+            "${server_solicitudOwner} creó una solicitud de prestación de servicios con la empresa: ${serviceProvider1Name}",
             "Acabo de editar la última versión del contrato y me gustaría que lo revises por favor",
             "Para revisar el contrato da click en éste link: ${server_solitudTrackingDashboard}", 
             "Escribe listo para firmar el contrato :)"
@@ -880,9 +1045,17 @@
           "training": [
             "go", 
             "listo", 
+            "firmar contrato",
+            "visar contrato",
+            "Quiero visar el contrato", 
             "ya estoy listo por favor", 
             "firmar",
-            "quiero firmar"
+            "quiero firmar",
+            "listo para firmar",
+            "listo para certificar el contrato",
+            "aprobar contrato",
+            "Certificar contrato",
+            "listo para signar"
           ],
           "response": [
             "Perfecto",
@@ -953,9 +1126,17 @@
           "training": [
             "go", 
             "listo", 
+            "firmar contrato",
+            "visar contrato",
+            "Quiero visar el contrato", 
             "ya estoy listo por favor", 
             "firmar",
-            "quiero firmar"
+            "quiero firmar",
+            "listo para firmar",
+            "listo para certificar el contrato",
+            "aprobar contrato",
+            "Certificar contrato",
+            "listo para signar"
           ],
           "response": [
             "Perfecto",
@@ -988,16 +1169,20 @@
             "Hola, ya proporcioné el servicio y me gustaría enviar la factura y ser pagado",
             "Me gustaria confirmar la prestación de un servicio",
             "confirmo el servicio",
+            "Proporcione el servicio",
+            "el contrato esta acabado",
+            "acabe con el servicio",
             "subir factura",
             "Servicio ok",
             "Pago porfavor",
             "Quiere que me paguen",
             "Podemos proceder al pago",
+            "confirmo servicio",
             "quiero mi dinero",
             "quiero mi plata"
           ],
           "response": [
-            "Hola ${serviceProviderRepresentantName1}, con gusto te ayudo con eso :)",
+            "Hola ${serviceProvider1Representant1Name}, con gusto te ayudo con eso :)",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
 
@@ -1024,7 +1209,13 @@
             "oui",
             "servicio completo",
             "completo",
-            "confirmo"
+            "confirmo",
+            "es cierto",
+            "valido",
+            "totalmente", 
+            "si, proporcione el servicio",
+            "si, todo en orden",
+            "exactemente"
           ],
           "response": ["Gracias, ahora sube el archivo .xml de tu factura para validarla"]
         },          
@@ -1034,7 +1225,7 @@
           "response": [
             "Gracias, voy avisando al área financiera de Profuturo, recibirás tu pago en menos de 15 días hábiles :)",
             "Estoy a tus órdenes y te recuerdo que puedes rastrear el estado de tu pago en éste link: www.profuturo.mx/dashboard/contract9782", 
-            "Que tengas un lindo día ${serviceProviderRepresentantName1}"
+            "Que tengas un lindo día ${serviceProvider1Representant1Name}"
           ]
         }
       ]
@@ -1045,7 +1236,7 @@
           "intentName": "notification_vobo_solicitant_invoice",
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "Hola ${server_solicitudOwner}, tengo noticias de la prestación de servicio con: ${serviceProviderName1}",
+            "Hola ${server_solicitudOwner}, tengo noticias de la prestación de servicio con: ${serviceProvider1Name}",
             "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
           ],
@@ -1061,8 +1252,8 @@
           "inputContext": ["user_signed_in", "vobo_solicitant_invoice_auth"],  
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "${server_serviceProviderRepresentantName1} nos indica que ha completado/entregado el servicio contratado" ,
-            "Por favor da tu visto bueno para confirmar que el servicio ha sido prestado conforme al contrato para poder liberar el pago de: ${serviceProviderName1}?",
+            "${server_serviceProvider1Representant1Name} nos indica que ha completado/entregado el servicio contratado" ,
+            "Por favor da tu visto bueno para confirmar que el servicio ha sido prestado conforme al contrato para poder liberar el pago de: ${serviceProvider1Name}?",
             "Revisa la factura en éste link: www.profuturo.mx/contract9q8672e9087/factura",
             "Escribe listo para generar tu VOBO juntos ;)"
           ],
@@ -1141,7 +1332,7 @@
           "inputContext": ["user_signed_in", "finanzas_validate_payment_auth"],
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "${server_solicitudOwner} ha confirmado satisfactoriamente la prestación del servicio: ${server_serviceDescription} por: ${server_serviceProviderName1}",
+            "${server_solicitudOwner} ha confirmado satisfactoriamente la prestación del servicio: ${server_serviceDescription} por: ${server_serviceProvider1Name}",
             "Sólo falta tu autorización para liberar el pago",
             "Por favor revisa la factura del servicio en éste link: www.profuturo.mx/contract9q8672e9087/factura",
             "Escribe listo para liberar el pago :)"
@@ -1161,7 +1352,15 @@
             "listo", 
             "ya estoy listo por favor", 
             "estoy listo para liberar el pago",
-            "quiero liberar el pago"
+            "quiero liberar el pago",
+            "todo esta en orden, podemos liberar el pago", 
+            "Estoy listo", 
+            "Estoy lista",
+            "Lista", 
+            "liberar pago", 
+            "estoy lista para desbloquear el pago",
+            "Enviar pago", 
+            "confirmar pago"
           ],
           "response": [
             "Perfecto",
