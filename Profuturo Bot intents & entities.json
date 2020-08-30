@@ -26,7 +26,6 @@
         },
         { "intentName": "onboard_tecnical_team_intro",
           "training": ["Quiero registrar a los usuarios que darán vistos buenos"],
-          "entities": [],
           "response": [
             "Necesito los números de teléfono de los usuarios que participarán en el demo, necesitamos 3 usuarios ademas de tí",
             "//> init flujo del intento onboard_tecnical_team_contact_information"
@@ -67,7 +66,6 @@
             "restart demo",
             "reset demo"
           ],
-          "entities": [],
           "response": [
             "Entendido, borraré la conversación y reiniciaré el proceso",
             "Para empezar demo de nuevo, escribe hola :)"
@@ -82,7 +80,6 @@
             "hard reset", 
             "hard reboot"
           ],
-          "entities": [],
           "response": [
             "OK, he reiniciado el sistema: debes añadir de nuevo a los solicitantes y represantantes de cada area (son 3)",
             "Para empezar, escribe hola"
@@ -94,7 +91,6 @@
       "pathIntents": [
         { "intentName": "greetings",
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Hola, por razones de seguridad debo identificarte primero",
             "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
@@ -131,7 +127,6 @@
           "intentName": "start_vobo",
           "inputContext": ["go_vobo"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Muy bien, enviaré un código por SMS para confirmar tu VOBO",
             "Por favor escribe el código para confirmar tu VOBO"
@@ -176,7 +171,6 @@
         { "intentName": "greetings",
           "inputContext": ["go_sign"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Envié un código por SMS para autenticar tu firma",
             "Por favor, escribe el código para autenticar tu firma"
@@ -227,7 +221,6 @@
             "Buenas",
             "Bonjour"
           ],
-          "entities": [],
           "response": ["//> Greeting Second step"],
           "comment": "if user is known => next step is Sign, if user is unknown => next step is Onboarding"
         }
@@ -237,7 +230,6 @@
       "pathIntents": [
         { "intentName": "greetings_onboarding",
           "training": ["//> Greeting Second step"],
-          "entities": [],
           "response": [
             "Hola, soy Barnabet la asistante virtual de Profuturo",
             "Mi misión es ayudarte a agilizar y proteger tus trámites con nosotros, a través de está conversación y blockchain SEIF, sientete en seguridad conmigo :)",
@@ -246,7 +238,6 @@
           ]
         },
         { "intentName": "get_user_basics",
-          "inputContext": [""],
           "training": ["si"],
           "entities": [
             {
@@ -274,7 +265,6 @@
           ]
         },
         { "intentName": "get_user_contacts",
-          "inputContext": [],
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
@@ -420,7 +410,6 @@
         { "intentName": "cloture_onboarding",
           "inputContext": ["onboarding_auth", "2FA_authenticated"],
           "training": ["//> autenticado, siguiente paso"],
-          "entities": [],
           "response": [
             "Excelente ${userName}, te he registrado en mis contactos",
             "Te guarde como: ${userName} ${userLastName1} ${userLastName2}, de la empresa: ${userCompany} con domicilio en ${userCompanyAddress}. Tu ID númerica (Hash ID) es ${server_blockchainID}",
@@ -433,7 +422,6 @@
       "pathIntents": [
         { "intentName": "2FA_generic_init",
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Cómo último paso, necesito confirmar tu identidad. Te envié un código por SMS",
             "//> init flujo del intento authentication.2FA_generic_confirmation}"
@@ -441,7 +429,6 @@
         },
         { "intentName": "2FA_generic_confirmation",
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Por favor escribe el código"
           ]
@@ -490,7 +477,6 @@
             "Necesito un servicio",
             "Quiero crear un contrato"
           ],
-          "entities": [],
           "response": [
             "Entendido, necesitaré que tengas lista la siguiente información:",
             "Tipo de servicio, A, B o C, puedes comprobar esta información en el link www.doc.profuturo.mx",
@@ -508,7 +494,6 @@
         { "intentName": "get_solicitud_infos",
           "inputContext": ["start_solicitud", "user_signed_in"],
           "training": ["Si", "Go", "vamos", "empezemos"],
-          "entities": [],
           "response": [
             "Muy bien, ¿qué tipo de servicio quieres contratar?",
             "Por ejemplo, servicio 'Tipo A', escribe 'Tipo A' o simplemente 'A'"
@@ -647,7 +632,6 @@
           "intentName": "search_solicitud_provider_fallback",
           "inputContext": ["search_solicitud_provider"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Para continuar con tu solicitud, escribe razón social del proveedor, su RFC, nombre o número telefónico de contacto"
           ],
@@ -701,7 +685,6 @@
         {
           "intentName": "solicitud_aprovement",
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Ahora verifico que todos los documentos necesarios para tu solicitud estén completos",
             "Listo! La propuesta de ${serviceProviderName1} ha sido registrada para una prestación de servicio de: ${serviceDescripción} con fecha limite ${serviceDeadline}",
@@ -717,7 +700,6 @@
         {
           "intentName": "solicitud_outro",
           "inputContext": ["request_approvement"],
-          "entities": [],
           "training": ["sí"],
           "response": [
             "Perfecto, el nº de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
@@ -737,9 +719,7 @@
       "pathIntents": [
         {
           "intentName": "notification_user_blacklist",
-          "inputContext": [],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Hola ${server_userControlInterno}, se ha creado una nueva solicitud de servicio que necesita tu revisión",
             "Por motivos de seguridad, necesito registrarte para poder brindarte mas información", 
@@ -756,7 +736,6 @@
           "intentName": "instruction_user_blacklist",
           "inputContext": ["user_signed_in", "user_black_list_auth"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProviderName1}",
             "Aún no contamos con la verificación en listas negras corespondientes", 
@@ -783,9 +762,7 @@
       "pathIntents": [
         {
           "intentName": "notification_solicitant_vobo_contract",
-          "inputContext": [""],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Hola ${server_solicitudOwner}, tengo nuevas noticias sobre tu solicitud de prestación de servicio :)",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte más información",
@@ -806,7 +783,6 @@
           "intentName": "instruction_solicitant_vobo_contract",
           "inputContext": ["user_signed_in", "service_solicitant_vobo_auth"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "El contrato para la prestación de servicio ${server_serviceDescripción} está listo",
             "Por favor revisa el contrato y da tu visto bueno para continuar", 
@@ -833,7 +809,6 @@
             "listo", 
             "vobo"
           ],
-          "entities": [],
           "response": [
             "Perfecto",
             "//> init flujo del intento vobo.start_vobo"
@@ -853,7 +828,6 @@
           "intentName": "vobo_solicitant_contract_outro",
           "inputContext": ["user_signed_in", "vobo_2FA_validated"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Listo, tu visto bueno ha sido registrado con el nº X"
           ]
@@ -864,9 +838,7 @@
       "pathIntents": [
         {
           "intentName": "notification_finanzas_sign_contract",
-          "inputContext": [],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Hola ${server_userFinanzas}, necesito la revisión y firma de un contrato de tu parte",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
@@ -887,7 +859,6 @@
           "intentName": "instruction_finanzas_sign_contract",
           "inputContext": ["user_signed_in", "finanzas_sign_contract_auth"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "${server_solicitudOwner} creó una solicitud de prestación de servicios con la empresa: ${serviceProviderName1}",
             "Acabo de editar la última versión del contrato y me gustaría que lo revises por favor",
@@ -916,7 +887,6 @@
             "firmar",
             "quiero firmar"
           ],
-          "entities": [],
           "response": [
             "Perfecto",
             "//> init flujo del intento sign.greeetings"
@@ -947,9 +917,7 @@
       "pathIntents": [
         {
           "intentName": "notification_proveedor_sign_contract",
-          "inputContext": [],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Hola ${server_serviceProvider}, tengo noticias sobre tu contrato con Profuturo :)",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
@@ -966,7 +934,6 @@
           "intentName": "instruction_proveedor_sign_contract",
           "inputContext": ["user_signed_in", "proveedor_sign_contract_auth"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Tu contrato con Profuturo ha sido confirmado :)",
             "Puedes revisar tu contrato en éste link: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
@@ -989,7 +956,6 @@
             "firmar",
             "quiero firmar"
           ],
-          "entities": [],
           "response": [
             "Perfecto",
             "//> init flujo del intento sign.greetings"
@@ -1062,9 +1028,7 @@
         },          
         {
           "intentName": "proveedor_upload_invoice",
-          "inputContext": [],
           "training": ["http://www.invoice.pdf/"],
-          "entities": [],
           "response": [
             "Gracias, voy avisando al área financiera de Profuturo, recibirás tu pago en menos de 15 días hábiles :)",
             "Estoy a tus órdenes y te recuerdo que puedes rastrear el estado de tu pago en éste link: www.profuturo.mx/dashboard/contract9782", 
@@ -1123,7 +1087,6 @@
             "listo", 
             "vobo"
           ],
-          "entities": [],
           "response": [
             "Perfecto",
             "//> init flujo del intento vobo.greetings"
@@ -1139,7 +1102,6 @@
           "intentName": "vobo_solicitant_invoice_outro",
           "inputContext": ["user_signed_in", "vobo_2FA_validated", "go_vobo_solicitant_invoice"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Listo, tu visto bueno ha sido registrado con el nº X",
             "Informaré al area de finanzas para liberar tu pago :)",
@@ -1152,9 +1114,7 @@
       "pathIntents": [
         {
           "intentName": "notification_finanzas_validate_payment ",
-          "inputContext": [],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "Hola ${server_userFinanzas}, necesitamos liberar un pago para un proveedor :)",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
@@ -1171,7 +1131,6 @@
           "intentName": "instruction_finanzas_validate_payment",
           "inputContext": ["user_signed_in", "finanzas_validate_payment_auth"],
           "training": ["//> init flujo del intento ${intentName}"],
-          "entities": [],
           "response": [
             "${server_solicitudOwner} ha confirmado satisfactoriamente la prestación del servicio: ${server_serviceDescription} por: ${server_serviceProviderName1}",
             "Sólo falta tu autorización para liberar el pago",
@@ -1195,7 +1154,6 @@
             "estoy listo para liberar el pago",
             "quiero liberar el pago"
           ],
-          "entities": [],
           "response": [
             "Perfecto",
             "//> init flujo del intento sign.greetings"
