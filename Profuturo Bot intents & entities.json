@@ -1065,7 +1065,7 @@
           ]
         },
         {
-          "intentName": "vobo_solicitant_invoice",
+          "intentName": "vobo_solicitant_invoice_signed",
           "inputContext": ["user_signed_in", "go_vobo_solicitant_invoice"],
           "training": [
             "quiero validar la factura",
