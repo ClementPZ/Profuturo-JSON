@@ -8,24 +8,37 @@
           "isLast": true,
           "training": [
             "Quiero añadir un solicitante",
-            "Quiero que una nueva persona haga la solicitud",
+            "Quiero registrar a un nuevo solicitante",
             "Nuevo solicitante",
-            "Nueva persona autorizada para crear solicitud"
+            "Crear nuevos participantes con papel de solicitantes",
+            "Crear solicitante",
+            "Me gustaria entrar un nuevo participante",
+            "Definir nuevo solictante", 
+            "Agregar nuevo participante como solicitante",
+            "Agregar nuevo solicitante",
+            "Incorporar nuevo solicitante", 
+            "Incrementar nuevo creador de solicitud",,
+            "Integrar nuevo solicitante",
+            "Dar de alta participante con papel de solicitante",
+            "Entrar nuevo solicitante"
           ],
           "entities": [
             {
-              "prompt": "Claro, podrías escribir su número?",
+              "prompt": "Claro, podrías escribir su número de telefono?",
               "entityName": "solicitante_number",
               "entity": "sys.phone_number",
               "list": false
             }
           ],
           "response": [
-            "Muchas gracias, enviamos a su número la invitación para registrarse :)"
+            "Muchas gracias, le acabo de enviar la invitación para registrarse :)"
           ]
         },
         { "intentName": "onboard_tecnical_team_intro",
-          "training": ["Quiero registrar a los usuarios que darán vistos buenos"],
+          "training": [
+            "Quiero registrar a los usuarios que haran la demo",
+            "Quiero añadir participantes a la demo"
+          ],
           "response": [
             "Necesito los números de teléfono de los usuarios que participarán en el demo, necesitamos 3 usuarios ademas de tí",
             "//> init flujo del intento onboard_tecnical_team_contact_information"
@@ -141,7 +154,7 @@
         },
         {
           "intentName": "2FA_auth_vobo",
-          "inputContext": ["get_2FA_code_vobo"],
+          "inputContext": "get_2FA_code_vobo",
           "training": ["351261", "748349", "736278"],
           "entities": [
             { 
@@ -184,7 +197,7 @@
           ]
         },
         { "intentName": "2FA_auth_vobo",
-          "inputContext": ["get_2FA_code_signature"],
+          "inputContext": "get_2FA_code_signature",
           "training": ["351261", "748349", "736278"],
           "entities": [
             { 
