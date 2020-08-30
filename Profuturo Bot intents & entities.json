@@ -14,7 +14,7 @@
           ],
           "entities": [
             {
-              "prompt": "Claro, ¿podrías escribir su número?",
+              "prompt": "Claro, podrías escribir su número?",
               "entityName": "solicitante_number",
               "entity": "sys.phone_number",
               "list": false
@@ -235,7 +235,7 @@
             "Hola, soy Barnabet la asistante virtual de Profuturo",
             "Mi misión es ayudarte a agilizar y proteger tus trámites con nosotros, a través de está conversación y blockchain SEIF, sientete en seguridad conmigo :)",
             "Antes de seguir, necesitas registrarte",
-            "¿Empezamos?"
+            "Empezamos?"
           ]
         },
         { "intentName": "get_user_basics",
@@ -254,7 +254,7 @@
               "list": false
             },
             {
-              "prompt": "¿Y tu apellido materno?",
+              "prompt": "Y tu apellido materno?",
               "entityName": "userLastName2",
               "entity": "sys.last_name",
               "list": false
@@ -275,7 +275,7 @@
               "list": false
             },
             {
-              "prompt": "¿y tu correo electronico?",
+              "prompt": "y tu correo electronico?",
               "entityName": "userMail",
               "entity": "sys.email",
               "list": false
@@ -336,7 +336,7 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "¿Para qué área trabajas?",
+              "prompt": "Para qué área trabajas?",
               "entityName": "userArea",
               "entity": "companyArea",
               "list": false
@@ -398,7 +398,7 @@
             }
           ],
           "response": [
-            "Muchas gracias, ¡te ves bien! ;)",
+            "Muchas gracias, te ves bien! ;)",
             "//> init flujo del intento authentication.2FA_generic_init"
           ],
           "outputContext": [
@@ -483,7 +483,7 @@
             "Tipo de servicio, A, B o C, puedes comprobar esta información en el link www.doc.profuturo.mx",
             "Descripción y justificación del servicio",
             "Razón social, RFC y propuesta del proveedor que quieres contratar",
-            "¿Empezamos?"
+            "Empezamos?"
           ],
           "outputContext": [
             {
@@ -496,7 +496,7 @@
           "inputContext": ["start_solicitud", "user_signed_in"],
           "training": ["Si", "Go", "vamos", "empezemos"],
           "response": [
-            "Muy bien, ¿qué tipo de servicio quieres contratar?",
+            "Muy bien, qué tipo de servicio quieres contratar?",
             "Por ejemplo, servicio 'Tipo A', escribe 'Tipo A' o simplemente 'A'"
           ],
           "outputContext": [
@@ -516,7 +516,7 @@
           ],
           "entities": [
             {
-              "prompt": ["¿Qué tipo de servicio que quieres contratar?"],
+              "prompt": ["Qué tipo de servicio que quieres contratar?"],
               "entityName": "serviceType",
               "entity": "serviceType",
               "list": false
@@ -547,7 +547,7 @@
             }
           ],
           "response": [
-            "Ok, ¿cuál es la fecha límite para recibir la prestación de éste servicio?"
+            "Ok, cuál es la fecha límite para recibir la prestación de éste servicio?"
           ],
           "outputContext": [
             {
@@ -615,7 +615,7 @@
           ],
           "response": [
             "Encontré a ${serviceProviderName1}, nº RFC ${serviceProviderRFC1}, represantada por: ${serviceProviderRepresentantName1}",
-            "¿es correcto?"
+            "es correcto?"
           ],
           "outputContext": [
             {
@@ -658,7 +658,7 @@
             }
           ],
           "response": [
-            "¡Propuesta registrada con éxito!",
+            "Propuesta registrada con éxito!",
             "//> init flujo del intento solicitud_creation_path.solicitud_aprovement"
           ]
         },
@@ -738,7 +738,7 @@
               "list": false
             }
           ],
-          "response": ["Muchas gracias, ¡que tengas un lindo día! :)"]
+          "response": ["Muchas gracias, que tengas un lindo día! :)"]
         }
       ]
     },
