@@ -141,7 +141,7 @@
         },
         {
           "intentName": "2FA_auth_vobo",
-          "inputContext": "get_2FA_code_vobo",
+          "inputContext": ["get_2FA_code_vobo"],
           "training": ["351261", "748349", "736278"],
           "entities": [
             { 
@@ -184,7 +184,7 @@
           ]
         },
         { "intentName": "2FA_auth_vobo",
-          "inputContext": "get_2FA_code_signature",
+          "inputContext": ["get_2FA_code_signature"],
           "training": ["351261", "748349", "736278"],
           "entities": [
             { 
