@@ -10,26 +10,26 @@
             "Quiero añadir un solicitante",
             "Quiero que una nueva persona haga la solicitud",
             "Nuevo solicitante",
-            "nueva persona autorizada a crear solicitud"
+            "Nueva persona autorizada para crear solicitud"
           ],
           "entities": [
             {
-              "prompt": "Claro, me podrías enviar su numero por favor?",
+              "prompt": "Claro, ¿podrías escribir su número?",
               "entityName": "solicitante_number",
               "entity": "sys.phone_number",
               "list": false
             }
           ],
           "response": [
-            "Muchas gracias, acabo de invitarle a regsitrase :)"
+            "Muchas gracias, enviamos a su número la invitación para registrarse :)"
           ]
         },
         { "intentName": "onboard_tecnical_team_intro",
-          "training": ["Quiero registrar a las personas que darán los vistos buenos"],
+          "training": ["Quiero registrar a los usuarios que darán vistos buenos"],
           "entities": [],
           "response": [
-            "Te voy a pedir los numeros de telefono de las personas que haran la demo, necistamos 3 personas ademas de ti",
-            "//> init flijo del intento onboard_tecnical_team_contact_information"
+            "Necesito los números de teléfono de los usuarios que participarán en el demo, necesitamos 3 usuarios ademas de tí",
+            "//> init flujo del intento onboard_tecnical_team_contact_information"
           ],
           "outputContext": [
             {
@@ -44,13 +44,13 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
           {
-            "prompt": "Puedes decirme cual es el telefono del representante del area ${server_areaName}?",
+            "prompt": "Por favor escribe el teléfono del representante del área ${server_areaName}?",
             "entityName": "area_representant_phone",
             "entity": "sys.phone_number",
             "list": false
           }],
           "response": [
-            "OK, enviaré la notificación de registro a estás personas"
+            "Gracias, se enviará una invitación a registrarse a todos los participantes"
           ],
           "outputContext": [
             {
@@ -62,30 +62,30 @@
         { "intentName": "reset",
           "isLast": true,
           "training": [
-            "Quiero hacer la demo desde cero",
-            "Quiero empezar la demo de nuevo", 
+            "Empezar demo desde cero",
+            "Empezar demo de nuevo", 
             "restart demo",
             "reset demo"
           ],
           "entities": [],
           "response": [
-            "Entendido, acabo de borrar la conversación y de reiniciar el proceso",
-            "Para empezar de nuevo la demo, dime hola :)"
+            "Entendido, borraré la conversación y reiniciaré el proceso",
+            "Para empezar demo de nuevo, escribe hola :)"
           ]
         },
         {"intentName": "hard_reset",
           "comment": "Diego Only",
           "isLast": true,
           "training": [
-            "empezar a cero", 
+            "empezar desde cero", 
             "reininicar todo", 
             "hard reset", 
             "hard reboot"
           ],
           "entities": [],
           "response": [
-            "OK, he hecho un reboot de todo el sistema: tienes que añadir de nuevo los solicitantes y represantantes de cada area (son 3)",
-            "Para empezar, simplemente dime hola"
+            "OK, he reiniciado el sistema: debes añadir de nuevo a los solicitantes y represantantes de cada area (son 3)",
+            "Para empezar, escribe hola"
           ]
         }
       ]
@@ -96,8 +96,8 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Antes de todo y por razones de seguridad, necesito identificarte",
-            "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos porfavor?"
+            "Hola, por razones de seguridad debo identificarte primero",
+            "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
           ]
         },
         { "intentName": "user_selfie",
@@ -105,7 +105,7 @@
           "training": ["http://pic.jpeg"],
           "entities": [
             {
-              "prompt": "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos por favor?",
+              "prompt": "Por favor envía una foto tuya tomada en los siguientes 2 minutos",
               "entityName": "user_sign_in_picture",
               "entity": "sys.url",
               "list": false
@@ -113,8 +113,8 @@
           ],
           "response": [
             "Gracias, estoy confirmando tu identidad",
-            "Listo, un gusto verte de nuevo ${userName}",
-            "Recuerdes que todo lo que creas conmigo esta protegido y encryptado en blockchain SEIF® ;)"
+            "Hola ${userName}, un gusto verte de nuevo",
+            "Todos los procesos que creas conmigo están protegidos y encriptados en blockchain SEIF® ;)"
           ],
           "outputContext": [
             {
@@ -133,8 +133,8 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Perfecto, te acabo de enviar un codigo por SMS",
-            "Este codigo nos va a permitir authenticar tu vobo, me lo podrias proporcionar porfavor?"
+            "Muy bien, enviaré un código por SMS para confirmar tu VOBO",
+            "Por favor escribe el código para confirmar tu VOBO"
           ],
           "outputContext": [
             {
@@ -149,14 +149,14 @@
           "training": ["351261", "748349", "736278"],
           "entities": [
             { 
-              "prompt": "Me podrías proporcionar el codigo que te envie por SMS por favor",
+              "prompt": "Por favor escribe el código para confirmar tu VOBO",
               "entityName": "code2FA", 
               "entity": "code2FA", 
               "list": false 
             }
           ],
           "response": [
-            "Muchas gracias, tu autentificación ha sido exitosa y tu Vo.Bo. ha sido registrado :)"
+            "Muchas gracias, has sido autenticado con éxito y tu VOBO ha sido validado y registrado también :)"
           ],
           "outputContext": [
             {
@@ -178,8 +178,8 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Te acabo de enviar un codigo por SMS",
-            "Este codigo nos va a permitir authenticar tu firma, me la podrías proporcionar por favor?"
+            "Envié un código por SMS para autenticar tu firma",
+            "Por favor, escribe el código para autenticar tu firma"
           ],
           "outputContext": [
             {
@@ -193,14 +193,14 @@
           "training": ["351261", "748349", "736278"],
           "entities": [
             { 
-              "prompt": "Me podrías proporcionar el codigo que te envie por SMS por favor",
+              "prompt": "Por favor, escribe el código para autenticar tu firma",
               "entityName": "code2FA", 
               "entity": "code2FA", 
               "list": false 
             }
           ],
           "response": [
-            "Muchas gracias, tu autentificación ha sido exitosa y tu firma ha sido registrada :)"
+            "Muchas gracias, has sido autenticado con éxito y tu firma ha sido registrada :)"
           ],
           "outputContext": [
             {
@@ -239,10 +239,10 @@
           "training": ["//> Greeting Second step"],
           "entities": [],
           "response": [
-            "Hola, me llamo Barnabet, soy el asistante virtual de Profuturo",
-            "Estoy aqui para agilizar y proteger tus tramites con nosotros, a traves de esta conversación y blockchain SEIF, sientete en seguridad conmigo :)",
-            "Antes de seguir, necesito primero registrarte",
-            "Empezemos?"
+            "Hola, soy Barnabet la asistante virtual de Profuturo",
+            "Mi misión es ayudarte a agilizar y proteger tus trámites con nosotros, a través de está conversación y blockchain SEIF, sientete en seguridad conmigo :)",
+            "Antes de seguir, necesitas registrarte",
+            "¿Empezamos?"
           ]
         },
         { "intentName": "get_user_basics",
@@ -250,19 +250,19 @@
           "training": ["si"],
           "entities": [
             {
-              "prompt": "Me podrias proporcionar tu(s) nombre(s) porfavor?",
+              "prompt": "Por favor escribe tu(s) nombre(s)",
               "entityName": "userName",
               "entity": "sys.given_name",
               "list": true
             },
             {
-              "prompt": "Gracias ${userName}, y cual es tu apellido paterno?",
+              "prompt": "Gracias ${userName}, ahora escribe tu apellido paterno",
               "entityName": "userLastName1",
               "entity": "sys.last_name",
               "list": false
             },
             {
-              "prompt": "Y tu apellido materno?",
+              "prompt": "¿Y tu apellido materno?",
               "entityName": "userLastName2",
               "entity": "sys.last_name",
               "list": false
@@ -278,13 +278,13 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Me podriás proporcionar tu numero de telefono porfavor?",
+              "prompt": "Por favor escribe tu número de teléfono",
               "entityName": "userPhone",
               "entity": "sys.phone-number",
               "list": false
             },
             {
-              "prompt": "y tu correo electronico?",
+              "prompt": "¿y tu correo electronico?",
               "entityName": "userMail",
               "entity": "sys.email",
               "list": false
@@ -299,32 +299,32 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Me podrias proporcionar una foto de tu credential de identidad?",
+              "prompt": "Por favor toma una foto de tu credential de identidad",
               "entityName": "userCredential1",
               "entity": "sys.url",
               "list": false
             },
             {
-              "prompt": "Gracias, y el reverso por favor?",
+              "prompt": "Gracias, ahora toma una foto del reverso por favor",
               "entityName": "userCredential2",
               "entity": "sys.url",
               "list": false
             },
             {
-              "prompt": "Gracias, y me podrias proporcionar tu CURP tambien?",
+              "prompt": "Gracias, ahora escribe tu CURP",
               "entityName": "userCURP",
               "entity": "sys.any",
               "list": false
             },
             {
-              "prompt": "Y por fin un foto de tu firma en un papel blanco por favor",
+              "prompt": "Ya casi terminamos, sólo nos falta una foto de tu firma con un fondo blanco",
               "entityName": "userPaperSignature",
               "entity": "sys.url",
               "list": false
             }
           ],
           "response": [
-            "Muchas gracias",
+            "Listo hemos terminado tu validación y registro personal, muchas gracias",
             "//> init flujo del intento user_onboarding.get_user_company"
           ]
         },
@@ -332,20 +332,20 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Me podrias indicar para que compañia trabajas porfavor?",
+              "prompt": "Por favor escribe la razón social de la empresa que representas",
               "entityName": "userCompany",
               "entity": "companyName",
               "list": false
             }
           ],
           "response": ["Muchas gracias"],
-          "Comment": " Siguiente paso depende de la compañia (Profuturo u otra), puede ser internUser (Profuturo) u externalUser (other)"
+          "Comment": " Siguiente paso depende de la compañía (Profuturo u otra), puede ser internUser (Profuturo) u externalUser (other)"
         },
         { "intentName": "get_company_infos_internUser",
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Para que area trabajas?",
+              "prompt": "¿Para qué área trabajas?",
               "entityName": "userArea",
               "entity": "companyArea",
               "list": false
@@ -353,8 +353,8 @@
           ],
           "response": [
             "Muchas gracias",
-            "Vamos a confirmar tu registro, por eso necesitaria que me envíes por favor una foto tuya tomada en los siguientes 3 minutos",
-            "Utilizaré esa fotografía para hacer un reconocimiento facial e identificarte en cuanto querras usar mis servicios",
+            "Vamos a confirmar tu registro, necesito una foto tuya tomada en los siguientes 2 minutos",
+            "Utilizaré esa foto para hacer un reconocimiento facial e identificarte siempre que requieras mis servicios",
             "//> init flujo del intento user_onboarding.get_user_picture"
           ]
         },
@@ -362,13 +362,13 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Me podrias por favor proporcionar la dirección postal de tu empresa?",
+              "prompt": "Por favor escribe el domicilio fiscal de tu empresa",
               "entityName": "userCompanyAddress",
               "entity": "sys.address",
               "list": false
             },
             {
-              "prompt": "Y su numero RFC por favor?",
+              "prompt": "También el RFC de la empresa por favor",
               "entityName": "userCompanyRFC",
               "entity": "RFC",
               "list": false
@@ -383,7 +383,7 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Me podrias proporcionar la constancia fiscal de tu compania porfavor?",
+              "prompt": "Ahora, sube la constancia de situación fiscal de tu empresa",
               "entityName": "companyConstanciaFiscal",
               "entity": "sys.url",
               "list": false
@@ -391,8 +391,8 @@
           ],
           "response": [
             "Muchas gracias",
-            "Vamos a confirmar tu registro, por eso necesitaria que me envíes por favor una foto tuya tomada en los siguientes 3 minutos",
-            "Utilizaré esa fotografía para hacer un reconocimiento facial e identificarte en cuanto querras usar mis servicios",
+            "Confirmemos tu registro, necesito una foto tuya tomada en los siguientes 2 minutos",
+            "Utilizaré está foto para hacer reconocimiento facial e identificarte siempre que requieras mis servicios",
             "//> init flujo del intento user_onboarding.get_user_picture"
           ]
         },
@@ -400,14 +400,14 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [
             {
-              "prompt": "Me podrias enviar un selfie porfavor :)?",
+              "prompt": "Por favor toma una selfie en los siguientes 2 minutos y súbela :)",
               "entityName": "userPicture",
               "entity": "sys.url",
               "list": false
             }
           ],
           "response": [
-            "Muchas gracias, te ves muy bien ;)",
+            "Muchas gracias, ¡te ves bien! ;)",
             "//> init flujo del intento authentication.2FA_generic_init"
           ],
           "outputContext": [
@@ -422,9 +422,9 @@
           "training": ["//> autenticado, siguiente paso"],
           "entities": [],
           "response": [
-            "Excellente ${userName}, estas registrado en mis contactos",
-            "Te guarde como: ${userName} ${userLastName1} ${userLastName2}, de la compania ${userCompany} con sede a ${userCompanyAddress}. Tu ID numerica (Hash ID) es ${server_blockchainID}",
-            "Me quedo a tu disposición cualquier cosa"
+            "Excelente ${userName}, te he registrado en mis contactos",
+            "Te guarde como: ${userName} ${userLastName1} ${userLastName2}, de la empresa: ${userCompany} con domicilio en ${userCompanyAddress}. Tu ID númerica (Hash ID) es ${server_blockchainID}",
+            "Quedo a tus órdenes para cualquier cosa adicional que necesites"
           ]
         }
       ]
@@ -435,7 +435,7 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Ultimo paso, necesitaria confirmar tu identidad. Te acabo de enviar un codigo por SMS",
+            "Cómo último paso, necesito confirmar tu identidad. Te envié un código por SMS",
             "//> init flujo del intento authentication.2FA_generic_confirmation}"
           ]
         },
@@ -443,20 +443,20 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Me lo podrias proporcionar por favor?"
+            "Por favor escribe el código"
           ]
         },
         { "intentName": "2FA_generic_authenticate",
           "training": [
-            "el codigo es 582901",
-            "me ha llegado el código 627819",
-            "Este es el codigo que me ha llegado: 231212",
+            "Tu código es 582901",
+            "He recibido el código 627819",
+            "He recibido el código: 231212",
             "123121",
             "12312"
           ],
           "entities": [
             {
-              "prompt": "Por favor, me podrías enviar el codigo que recibiste?",
+              "prompt": "Por favor, escribe el código que recibiste",
               "entityName": "authenticationCode",
               "entity": "code2FA",
               "list": false
@@ -481,7 +481,7 @@
           "inputContext": ["user_signed_in"],
           "training": [
             "Quiero hacer una solicitud de servicio",
-            "Quiero contratar un man",
+            "Quiero contratar",
             "Nuevo servicio",
             "Contratación de servicio",
             "Solicitud de servicio",
@@ -492,11 +492,11 @@
           ],
           "entities": [],
           "response": [
-            "Entendido, para eso necesitaria que tengas a tu disposición los elementos siguientes:",
+            "Entendido, necesitaré que tengas lista la siguiente información:",
             "Tipo de servicio, A, B o C, puedes comprobar esta información en el link www.doc.profuturo.mx",
-            "Descripción y justificación del servicio, eso simplemente tienes que escribir me lo aqui:)",
-            "El nombre, RFC y la propuesta del proveedor que quieres contratar",
-            "Empezamos?"
+            "Descripción y justificación del servicio",
+            "Razón social, RFC y propuesta del proveedor que quieres contratar",
+            "¿Empezamos?"
           ],
           "outputContext": [
             {
@@ -510,8 +510,8 @@
           "training": ["Si", "Go", "vamos", "empezemos"],
           "entities": [],
           "response": [
-            "Ok, cual es el tipo de servicio que quieres contratar?",
-            "Por ejemplo por un servicio de 'Tipo A', escribe 'Tipo A' o simplemente 'A'"
+            "Muy bien, ¿qué tipo de servicio quieres contratar?",
+            "Por ejemplo, servicio 'Tipo A', escribe 'Tipo A' o simplemente 'A'"
           ],
           "outputContext": [
             {
@@ -524,20 +524,20 @@
           "inputContext": ["get_solicitud_provider_infos"],
           "training": [
             "Servicio Tipo A", 
-            "Mi contrato es de tipo B",
+            "Mi contrato es tipo B",
             "A",
             "Tipo c"
           ],
           "entities": [
             {
-              "prompt": ["Cual es el tipo de servicio que quieres contratar?"],
+              "prompt": ["¿Qué tipo de servicio que quieres contratar?"],
               "entityName": "serviceType",
               "entity": "serviceType",
               "list": false
             }
           ],
           "response": [
-            "Entendido :) Me podrías proporcionar una descripción de este servicio porfavor?",
+            "Entendido :) Ahora escribe una descripción para éste servicio",
             "//> init flujo del intento solicitud_creation_path.get_solicitud_infos_serviceDescription"
           ],
           "outputContext": [
@@ -561,7 +561,7 @@
             }
           ],
           "response": [
-            "Ok, y cual seria la fecha limite para que te proporcionan este servicio?"
+            "Ok, ¿cuál es la fecha límite para recibir la prestación de éste servicio?"
           ],
           "outputContext": [
             {
@@ -579,13 +579,13 @@
               "entity": "sys.date",
               "list": false,
               "prompt": [
-                "Me Podrías dar la fecha limite del servicio, por favor?"
+                "Por favor escribe la fecha límite para la prestación de éste servicio (usa 2 dígitos para el mes y 4 dígitos para el año)"
               ]
             }
           ],
           "response": [
-            "Muchas gracias, apunto un servicio de ${serviceType} con una fecha limite de ${serviceDeadline} y la descripción ${serviceDescription}",
-            "Quien seria el proveedor para este servicio? Me puedes dar el nombre de la empresa, su RFC o el nombre o numero telefonico de tu contacto"
+            "Muchas gracias, te confirmo tu solicitud para el servicio de: ${serviceDescription}, tipo de servicio: ${serviceType} con fecha límite para: ${serviceDeadline}",
+            "Por favor escribe la razón social del proveedor, RFC, nombre y número telefónico del contacto"
           ],
           "outputContext": [
             {
@@ -598,8 +598,8 @@
           "intentName": "search_service_provider",
           "inputContext": ["get_solicitud_provider_infos"],
           "training": [
-            "AIGA970806AS5 y el representante es Aradia Donnelle",
-            "La compañia es SEIF y el nombre del representate es Jesus Fuentes",
+            "AIGA970806AS5 representado por Aradia Donnelle",
+            "La empresa es: SEIF representada por Jesus Fuentes",
             "Este es el representante: Jesus Fuentes",
             "El proveedor es AIGA970806AS5",
             "AZZA977346AS5",
@@ -621,7 +621,7 @@
               "mandatory": false
             },
             {
-              "prompt": "Me podrías proporcionar el nombre de tu contacto porfavor? ",
+              "prompt": "Por favor escribe el nombre del representante legal ",
               "entityName": "serviceProviderRepresentantName1",
               "entity": "sys.given_name",
               "list": true,
@@ -629,8 +629,8 @@
             }
           ],
           "response": [
-            "Encontré a ${serviceProviderName1}, nº RFC ${serviceProviderRFC1}, represantada por ${serviceProviderRepresentantName1}",
-            "es correcto?"
+            "Encontré a ${serviceProviderName1}, nº RFC ${serviceProviderRFC1}, represantada por: ${serviceProviderRepresentantName1}",
+            "¿es correcto?"
           ],
           "outputContext": [
             {
@@ -649,7 +649,7 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Para seguir con tu solicitud, necesitaria que me proporciones porfavor el nombre de la empresa proveedor, su RFC o el nombre o numero telefonico de tu contacto"
+            "Para continuar con tu solicitud, escribe razón social del proveedor, su RFC, nombre o número telefónico de contacto"
           ],
           "outputContext": [
             {
@@ -664,14 +664,14 @@
           "training": ["Si"],
           "entities": [
             {
-              "prompt": "Me podrias enviar la propuesta de ${serviceProviderName1} porfavor?",
+              "prompt": "Por favor sube la propuesta de:${serviceProviderName1} (en formato: png, pdf, ppt)",
               "entityName": "serviceProviderProposal1",
               "entity": "sys.url",
               "list": false
             }
           ],
           "response": [
-            "la propuesta ha sido registrada, muchas gracias",
+            "¡Propuesta registrada con éxito!",
             "//> init flujo del intento solicitud_creation_path.solicitud_aprovement"
           ]
         },
@@ -681,20 +681,20 @@
           "training": ["No"],
           "entities": [
             {
-              "prompt": "Entendido, para poder seguir con tu solicitud, necesitaria que me comuniques el nombre de tu proveedor por favor?",
+              "prompt": "Entendido, para continuar con tu solicitud, por favor escribe razón social de proveedor",
               "entityName": "serviceProviderRepresentantName1",
               "entity": "sys.given_name",
               "list": false
             },
             {
-              "prompt": "Y por fin su numero de telefono?",
+              "prompt": "Ahora escribe el número de teléfono del contacto",
               "entityName": "serviceProviderRepresentantPhone",
               "entity": "sys.phone_number",
               "list": false
             }
           ],
           "response": [
-            "Excellente gracias, le voy a invitar a darse de alta para poder seguir adelante :)",
+            "Muy bien, enviaré una invitación al proveedor para registrarse y darse de alta :)",
             "//> init flujo del intento solicitud_creation_path.get_solicitud_docs"
           ]
         },
@@ -703,9 +703,9 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Voy a verificar que tengamos todos los documentos necesarios para tu solicitud",
-            "Listo! Registro la propuesta de ${serviceProviderName1} para una prestación de servicio con fecha limite ${serviceDeadline} con la descripción siguiente ${serviceDescripción}",
-            "Es corecto?"
+            "Ahora verifico que todos los documentos necesarios para tu solicitud estén completos",
+            "Listo! La propuesta de ${serviceProviderName1} ha sido registrada para una prestación de servicio de: ${serviceDescripción} con fecha limite ${serviceDeadline}",
+            "Por favor confirma que toda la información es correcta"
           ],
           "outputContext": [
             {
@@ -720,9 +720,9 @@
           "entities": [],
           "training": ["sí"],
           "response": [
-            "Perfecto, el nº de tu solicitud en blockchain es ${server_solicitudHashID}",
-            "Te agradezco y te propongo avisarte en cuanto tendré noticias ;)",
-            "Podras tambien seguir tu solicitud en cualquier momento en el link ${server_solitudTrackingDashboard}"
+            "Perfecto, el nº de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
+            "Muchas gracias, te mantendré al tanto de los siguientes pasos ;)",
+            "Rastrea tu solicitud con esté link: ${server_solitudTrackingDashboard}"
           ],
           "outputContext": [
             {
@@ -741,8 +741,8 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Hola ${server_userControlInterno}, uno de nuestros colegas creio una solicitud de servicio que necesitaria tu revisión",
-            "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
+            "Hola ${server_userControlInterno}, se ha creado una nueva solicitud de servicio que necesita tu revisión",
+            "Por motivos de seguridad, necesito registrarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
           ],
           "outputContext": [
@@ -758,9 +758,9 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "${server_solicitudOwner} creo una solicitud de prestación de servicio par la compañía ${serviceProviderName1}",
-            "Unfortudanamente, no tenemos el registro de listas negras corespondiente", 
-            "Me podrias ayudar enviandome este documento porfavor?"]
+            "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProviderName1}",
+            "Aún no contamos con la verificación en listas negras corespondientes", 
+            "Por favor envíame por esté medio los documentos y evidencias"]
         },
         {
           "intentName": "doc_user_blacklist",
@@ -769,13 +769,13 @@
           "training": ["http://www.doc.pdf/"],
           "entities": [
             {
-              "prompt": "Me podrías enviar el documento de listas negras de la compañia ${conversation.serviceProviderName1} por favor?",
+              "prompt": "${conversation.serviceProviderName1}, por favor sube los documentos y evidencias ante listas negras de la empresa  ",
               "entityName": "blackList",
               "entity": "sys.url",
               "list": false
             }
           ],
-          "response": ["Muchas gracias y lindo fin de dia :)"]
+          "response": ["Muchas gracias, ¡que tengas un lindo día! :)"]
         }
       ]
     },
@@ -787,9 +787,9 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Hola ${server_solicitudOwner}, tengo noticias concernando tu solicitud de prestación de servicio :)",
-            "Por motivos de seguridad, necesito primero identificarte para poder brindarte mas información",
-            "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos por favor?"
+            "Hola ${server_solicitudOwner}, tengo nuevas noticias sobre tu solicitud de prestación de servicio :)",
+            "Por motivos de seguridad, necesito autenticarte para poder brindarte más información",
+            "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
           ],
           "outputContext": [
             {
@@ -808,10 +808,10 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "El contrato para tu prestación de servicio ${server_serviceDescripción} esta listo",
-            "Necesitaria por favor que lo revises y que des tu visto bueno", 
-            "Puedes consultar este contrato aqui: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
-            "Avisame cuando estes listo para que generemos tu vobo juntos ;)"
+            "El contrato para la prestación de servicio ${server_serviceDescripción} está listo",
+            "Por favor revisa el contrato y da tu visto bueno para continuar", 
+            "Puedes consultar el contrato aquí: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
+            "Escribe listo para generar tu vobo juntos ;)"
           ],
           "outputContext": [
               {
@@ -868,9 +868,9 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Hola ${server_userFinanzas}, necesitaria que revises y firmes unos de mis contratos por favor ",
-            "Por motivos de seguridad, necesito primero identificarse para poder brindarte mas información", 
-            "Me podrias enviar una foto tuya, tomada en los siguientes 2 minutos porfavor?"
+            "Hola ${server_userFinanzas}, necesito la revisión y firma de un contrato de tu parte",
+            "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
+            "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
           ],
           "outputContext": [
             {
@@ -889,10 +889,10 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "${server_solicitudOwner} creo una solicitud de prestación de servicio con la compañía ${serviceProviderName1}",
-            "Acabo de editar la ultima versión del contrato y me gustaria que lo revises por favor",
-            "Lo puedes consultar aqui: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
-            "Avisame cuando estes listo para firmarlo :)"
+            "${server_solicitudOwner} creó una solicitud de prestación de servicios con la empresa: ${serviceProviderName1}",
+            "Acabo de editar la última versión del contrato y me gustaría que lo revises por favor",
+            "Para revisar el contrato da click en éste link: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
+            "Escribe listo para firmar el contrato :)"
           ],
           "outputContext": [
               {
@@ -939,7 +939,7 @@
             "user_signed_in"
           ],
           "training": ["//> init flujo del intento ${intentName}"], 
-          "response": ["Me quedo a tu disposición cualquier cosa y te deseo un lindo dia"]
+          "response": ["Quedo a tus órdenes para cualquier cosa, que tengas un lindo dia"]
         }
       ]
     },
@@ -951,8 +951,8 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Hola ${server_serviceProvider}, tengo noticias concernando tu contrato con Profuturo :)",
-            "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
+            "Hola ${server_serviceProvider}, tengo noticias sobre tu contrato con Profuturo :)",
+            "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
           ],
           "outputContext": [
@@ -969,8 +969,8 @@
           "entities": [],
           "response": [
             "Tu contrato con Profuturo ha sido confirmado :)",
-            "Lo puedes consultar aqui: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
-            "Avisame cuando estes listo para firmarlo ;)"
+            "Puedes revisar tu contrato en éste link: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
+            "Escribe listo para firmar ;)"
           ],
           "outputContext": [
               {
@@ -1009,7 +1009,7 @@
             "signature_2FA_validated"
           ],
           "training": ["//> init flujo del intento ${intentName}"], 
-          "response": ["Me quedo a tu disposición cualquier cosa y te deseo un lindo dia"]
+          "response": ["Quedo a tus órdenes para cualquier cosa, que tengas un lindo día"]
         }
       ]
     },
@@ -1017,20 +1017,20 @@
       "pathIntents": [
         { "intentName": "proveedor_confirm_service_intro",
           "training": [
-            "Hola, ya proporcione el servicio y me gustaria enviar la factura y ser pagado",
-            "Me gustaria confirmar la proporcion del servicio",
+            "Hola, ya proporcioné el servicio y me gustaría enviar la factura y ser pagado",
+            "Me gustaria confirmar la prestación de un servicio",
             "confirmo el servicio",
             "subir factura",
             "Servicio ok",
             "Pago porfavor",
-            "Quiere estar pagado",
+            "Quiere que me paguen",
             "Podemos proceder al pago",
             "quiero mi dinero",
             "quiero mi plata"
           ],
           "response": [
             "Hola ${serviceProviderRepresentantName1}, con gusto te ayudo con eso :)",
-            "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
+            "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
 
           ],
@@ -1045,20 +1045,20 @@
           "intentName": "proveedor_confirm_service_ask", 
           "inputContext": ["user_signed_in", "proveedor_confirm_service_auth"],  
           "training": ["//> init flujo del intento ${intentName}"],
-          "response": ["Me podrias confirmar que el servicio ha sido proporcionado como indicado en tu contrato con Profuturo?"]
+          "response": ["Por favor confirma que el servicio ha sido prestado como está indicado en tu contrato con Profuturo"]
         },
         {
           "intentName": "proveedor_confirm_service_answer", 
           "inputContext": ["user_signed_in", "proveedor_confirm_service_auth"],  
           "training": [
-            "El servico ha sido proporcionado como indicado en el contrato",
+            "El servico ha sido prestado como está indicado en el contrato",
             "si",
             "oui",
             "servicio completo",
             "completo",
             "confirmo"
           ],
-          "response": ["Gracias, me podrías proporcionar la factura corespondiente por favor?"]
+          "response": ["Gracias, ahora sube el archivo .xml de tu factura para validarla"]
         },          
         {
           "intentName": "proveedor_upload_invoice",
@@ -1066,9 +1066,9 @@
           "training": ["http://www.invoice.pdf/"],
           "entities": [],
           "response": [
-            "Gracias, voy avisando al servicio fincanciero de Profuturo, deberias recibir tu pago en menos de 15 dias habiles :)",
-            "Me quedo a tu disposición y te recuerdo que puedes verificar el estado de tu contrato en cualquier momento en el link siguiente: www.profuturo.mx/dashboard/contract9782", 
-            "Te deseo un lindo dia ${serviceProviderRepresentantName1}"
+            "Gracias, voy avisando al área financiera de Profuturo, recibirás tu pago en menos de 15 días hábiles :)",
+            "Estoy a tus órdenes y te recuerdo que puedes rastrear el estado de tu pago en éste link: www.profuturo.mx/dashboard/contract9782", 
+            "Que tengas un lindo día ${serviceProviderRepresentantName1}"
           ]
         }
       ]
@@ -1079,7 +1079,7 @@
           "intentName": "notification_vobo_solicitant_invoice",
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "Hola ${server_solicitudOwner}, tengo noticias concernando tu prestación de servicio con ${serviceProviderName1}",
+            "Hola ${server_solicitudOwner}, tengo noticias de la prestación de servicio con: ${serviceProviderName1}",
             "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
           ],
@@ -1095,10 +1095,10 @@
           "inputContext": ["user_signed_in", "vobo_solicitant_invoice_auth"],  
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "${server_serviceProviderRepresentantName1} nos indico haber proporcionado el servicio contratado de manera completa" ,
-            "Me podrias confirmar que este servicio ha sido proporcionado como debido para poder liberar el pago de ${serviceProviderName1}?",
-            "Para eso, necesito tu visto bueno en la factura que encontraras aqui www.profuturo.mx/contract9q8672e9087/factura",
-            "Avisame cuando estes listo para que lo generemos juntos ;)"
+            "${server_serviceProviderRepresentantName1} nos indica que ha completado/entregado el servicio contratado" ,
+            "Por favor da tu visto bueno para confirmar que el servicio ha sido prestado conforme al contrato para poder liberar el pago de: ${serviceProviderName1}?",
+            "Revisa la factura en éste link: www.profuturo.mx/contract9q8672e9087/factura",
+            "Escribe listo para generar tu VOBO juntos ;)"
           ],
           "outputContext": [
             {
@@ -1142,8 +1142,8 @@
           "entities": [],
           "response": [
             "Listo, tu visto bueno ha sido registrado con el nº X",
-            "Informo al area de finanzas que pueden liberar el pago :)",
-            "muchas gracias por tu ayuda, que tengas un lindo dia"
+            "Informaré al area de finanzas para liberar tu pago :)",
+            "Gracias por tu ayuda, que tengas un lindo día"
           ]
         }
       ]
@@ -1156,8 +1156,8 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "Hola ${server_userFinanzas}, necesitaria que liberamos un pago juntos :)",
-            "Por motivos de seguridad, necesito primero identificarte para poder brindarte mas información", 
+            "Hola ${server_userFinanzas}, necesitamos liberar un pago para un proveedor :)",
+            "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
           ],
           "outputContext": [
@@ -1173,10 +1173,10 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "entities": [],
           "response": [
-            "${server_solicitudOwner} nos confirmo la buena proporción del servicio ${server_serviceDescription} por la compañía ${server_serviceProviderName1}",
-            "Solo me faltaria tu autorización para liberar el pago",
-            "Si quieres revisar la factura, la encontraras aqui www.profuturo.mx/contract9q8672e9087/factura",
-            "Avisame cuando estas listo para liberar el pago :)"
+            "${server_solicitudOwner} ha confirmado satisfactoriamente la prestación del servicio: ${server_serviceDescription} por: ${server_serviceProviderName1}",
+            "Sólo falta tu autorización para liberar el pago",
+            "Por favor revisa la factura del servicio en éste link: www.profuturo.mx/contract9q8672e9087/factura",
+            "Escribe listo para liberar el pago :)"
           ],
           "outputContext": [
               {
@@ -1216,9 +1216,9 @@
           ],
           "training": ["//> init flujo del intento ${intentName}"], 
           "response": [
-            "Listo, el pago ha sido liberado con el numero de transacción 8768t6876t ",
-            "Informo al proveedor que le hemos enviado el pago :)",
-            "Muchas gracias por tu ayuda, que tengas un lindo dia"
+            "Listo, el pago ha sido liberado con el número de transacción: 8768t6876t ",
+            "Ahora, notificaré al proveedor que su pago ha sido liberado :)",
+            "Muchas gracias por tu ayuda, que tengas un lindo día"
           ]
         }
       ]
