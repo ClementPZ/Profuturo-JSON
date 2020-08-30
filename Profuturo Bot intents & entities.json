@@ -97,6 +97,7 @@
           ]
         },
         { "intentName": "user_selfie",
+          "comment": "Necesita otro intent para decidir la acción siguiente",
           "isLast": true,
           "training": ["http://pic.jpeg"],
           "entities": [
@@ -609,8 +610,7 @@
               "prompt": "Por favor escribe el nombre del representante legal ",
               "entityName": "serviceProviderRepresentantName1",
               "entity": "sys.given_name",
-              "list": true,
-              "mandatory": true
+              "list": true
             }
           ],
           "response": [
@@ -629,17 +629,20 @@
           ]
         },
         {
-          "intentName": "search_solicitud_provider_fallback",
+          "intentName": "invite_solicitud_provider",
           "inputContext": ["search_solicitud_provider"],
-          "training": ["//> init flujo del intento ${intentName}"],
-          "response": [
-            "Para continuar con tu solicitud, escribe razón social del proveedor, su RFC, nombre o número telefónico de contacto"
-          ],
-          "outputContext": [
+          "training": ["No"],
+          "entities": [
             {
-              "name": "search_solicitud_provider",
-              "lifespanCount": "0"
+              "prompt": "Ahora escribe el número de teléfono del contacto",
+              "entityName": "serviceProviderRepresentantPhone",
+              "entity": "sys.phone_number",
+              "list": false
             }
+          ],
+          "response": [
+            "Muy bien, enviaré una invitación al proveedor para registrarse y darse de alta :)",
+            "//> init flujo del intento solicitud_creation_path.get_solicitud_docs"
           ]
         },
         {
@@ -657,29 +660,6 @@
           "response": [
             "¡Propuesta registrada con éxito!",
             "//> init flujo del intento solicitud_creation_path.solicitud_aprovement"
-          ]
-        },
-        {
-          "intentName": "invite_solicitud_provider",
-          "inputContext": ["search_solicitud_provider"],
-          "training": ["No"],
-          "entities": [
-            {
-              "prompt": "Entendido, para continuar con tu solicitud, por favor escribe razón social de proveedor",
-              "entityName": "serviceProviderRepresentantName1",
-              "entity": "sys.given_name",
-              "list": false
-            },
-            {
-              "prompt": "Ahora escribe el número de teléfono del contacto",
-              "entityName": "serviceProviderRepresentantPhone",
-              "entity": "sys.phone_number",
-              "list": false
-            }
-          ],
-          "response": [
-            "Muy bien, enviaré una invitación al proveedor para registrarse y darse de alta :)",
-            "//> init flujo del intento solicitud_creation_path.get_solicitud_docs"
           ]
         },
         {
@@ -702,7 +682,7 @@
           "inputContext": ["request_approvement"],
           "training": ["sí"],
           "response": [
-            "Perfecto, el nº de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
+            "Perfecto, el id de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
             "Muchas gracias, te mantendré al tanto de los siguientes pasos ;)",
             "Rastrea tu solicitud con esté link: ${server_solitudTrackingDashboard}"
           ],
@@ -722,20 +702,24 @@
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
             "Hola ${server_userControlInterno}, se ha creado una nueva solicitud de servicio que necesita tu revisión",
-            "Por motivos de seguridad, necesito registrarte para poder brindarte mas información", 
-            "//> init flujo del intento sign_in.user_selfie"
+            "Por motivos de seguridad, necesito que te identifiques para poder brindarte mas información", 
+            "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
           ],
           "outputContext": [
             {
               "name": "user_black_list_auth",
               "lifespanCount": "6"
+            },
+            {
+              "name": "sign_in",
+              "lifespanCount": "5"
             }
           ]
         },
         {
           "intentName": "instruction_user_blacklist",
           "inputContext": ["user_signed_in", "user_black_list_auth"],
-          "training": ["//> init flujo del intento ${intentName}"],
+          "training": ["//> siguiente paso después del sign in"],
           "response": [
             "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProviderName1}",
             "Aún no contamos con la verificación en listas negras corespondientes", 
@@ -782,11 +766,11 @@
         {
           "intentName": "instruction_solicitant_vobo_contract",
           "inputContext": ["user_signed_in", "service_solicitant_vobo_auth"],
-          "training": ["//> init flujo del intento ${intentName}"],
+          "training": ["//> siguiente paso después del sign in"],
           "response": [
             "El contrato para la prestación de servicio ${server_serviceDescripción} está listo",
             "Por favor revisa el contrato y da tu visto bueno para continuar", 
-            "Puedes consultar el contrato aquí: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
+            "Puedes consultar el contrato aquí: ${server_solitudTrackingDashboard}", 
             "Escribe listo para generar tu vobo juntos ;)"
           ],
           "outputContext": [
@@ -858,11 +842,11 @@
         {
           "intentName": "instruction_finanzas_sign_contract",
           "inputContext": ["user_signed_in", "finanzas_sign_contract_auth"],
-          "training": ["//> init flujo del intento ${intentName}"],
+          "training": ["//> siguiente paso después del sign in"],
           "response": [
             "${server_solicitudOwner} creó una solicitud de prestación de servicios con la empresa: ${serviceProviderName1}",
             "Acabo de editar la última versión del contrato y me gustaría que lo revises por favor",
-            "Para revisar el contrato da click en éste link: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
+            "Para revisar el contrato da click en éste link: ${server_solitudTrackingDashboard}", 
             "Escribe listo para firmar el contrato :)"
           ],
           "outputContext": [
@@ -921,11 +905,15 @@
           "response": [
             "Hola ${server_serviceProvider}, tengo noticias sobre tu contrato con Profuturo :)",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
-            "//> init flujo del intento sign_in.user_selfie"
+            "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
           ],
           "outputContext": [
             {
               "name": "proveedor_sign_contract_auth",
+              "lifespanCount": "6"
+            },
+            {
+              "name": "sign_in",
               "lifespanCount": "6"
             }
           ]
@@ -933,10 +921,10 @@
         {
           "intentName": "instruction_proveedor_sign_contract",
           "inputContext": ["user_signed_in", "proveedor_sign_contract_auth"],
-          "training": ["//> init flujo del intento ${intentName}"],
+          "training": ["//> siguiente paso después del sign in"],
           "response": [
             "Tu contrato con Profuturo ha sido confirmado :)",
-            "Puedes revisar tu contrato en éste link: WWW.PROFUTURO.MX/CONTRACTNº9786yd9i7ygelidyt", 
+            "Puedes revisar tu contrato en éste link: ${server_solitudTrackingDashboard}", 
             "Escribe listo para firmar ;)"
           ],
           "outputContext": [
@@ -963,12 +951,13 @@
           "outputContext": [
             {
               "name": "go_proveedor_sign_contract",
-              "lifespanCount": "3"
+              "lifespanCount": "6"
             }
           ]
         },
         {
           "intentName": "proveedor_sign_contract_outro",
+          "isLast": true,
           "inputContext": [
             "user_signed_in",
             "go_proveedor_sign_contract",
@@ -1100,12 +1089,19 @@
         },
         {
           "intentName": "vobo_solicitant_invoice_outro",
+          "isLast": true,
           "inputContext": ["user_signed_in", "vobo_2FA_validated", "go_vobo_solicitant_invoice"],
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
             "Listo, tu visto bueno ha sido registrado con el nº X",
             "Informaré al area de finanzas para liberar tu pago :)",
             "Gracias por tu ayuda, que tengas un lindo día"
+          ],
+          "outputContext": [
+            {
+              "name": "go_vobo_solicitant_invoice",
+              "lifespanCount": "0"
+            }
           ]
         }
       ]
@@ -1167,6 +1163,7 @@
         },
         {
           "intentName": "finanzas_validate_payment_outro",
+          "isLast": true,
           "inputContext": [
             "user_signed_in",
             "go_finanzas_validate_payment",
@@ -1177,6 +1174,12 @@
             "Listo, el pago ha sido liberado con el número de transacción: 8768t6876t ",
             "Ahora, notificaré al proveedor que su pago ha sido liberado :)",
             "Muchas gracias por tu ayuda, que tengas un lindo día"
+          ],
+          "outputContext": [
+            {
+              "name": "go_finanzas_validate_payment",
+              "lifespanCount": "0"
+            }
           ]
         }
       ]
