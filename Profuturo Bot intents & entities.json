@@ -153,7 +153,7 @@
         },
         {
           "intentName": "2FA_auth_vobo",
-          "inputContext": "get_2FA_code_vobo",
+          "inputContext": ["get_2FA_code_vobo"],
           "training": [
             "Tu código es 582901",
             "He recibido el código 627819",
@@ -215,7 +215,7 @@
           ]
         },
         { "intentName": "2FA_auth_vobo",
-          "inputContext": "get_2FA_code_signature",
+          "inputContext": ["get_2FA_code_signature"],
           "training": [
             "351261", 
             "748349", 
@@ -736,13 +736,13 @@
             },
             {
               "prompt": "Por favor escribe el nombre del representante legal",
-              "entityName": "serviceProvider1Representant1Name",
+              "entityName": "serviceProvider1Rep1Name",
               "entity": "sys.given_name",
               "list": true
             }
           ],
           "response": [
-            "Encontré a ${serviceProvider1Name}, nº RFC ${serviceProvider1RFC}, represantada por: ${serviceProvider1Representant1Name}",
+            "Encontré a ${serviceProvider1Name}, nº RFC ${serviceProvider1RFC}, represantada por: ${serviceProvider1Rep1Name}",
             "¿es correcto?"
           ],
           "outputContext": [
@@ -776,7 +776,7 @@
           "entities": [
             {
               "prompt": "Para poder seguir con tu solicitud, por favor escribe el número de teléfono mobil del contacto",
-              "entityName": "serviceProvider1Representant1Phone",
+              "entityName": "serviceProvider1Rep1Phone",
               "entity": "sys.phone_number",
               "list": false
             }
@@ -1182,7 +1182,7 @@
             "quiero mi plata"
           ],
           "response": [
-            "Hola ${serviceProvider1Representant1Name}, con gusto te ayudo con eso :)",
+            "Hola ${serviceProvider1Rep1Name}, con gusto te ayudo con eso :)",
             "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información", 
             "//> init flujo del intento sign_in.user_selfie"
 
@@ -1225,7 +1225,7 @@
           "response": [
             "Gracias, voy avisando al área financiera de Profuturo, recibirás tu pago en menos de 15 días hábiles :)",
             "Estoy a tus órdenes y te recuerdo que puedes rastrear el estado de tu pago en éste link: www.profuturo.mx/dashboard/contract9782", 
-            "Que tengas un lindo día ${serviceProvider1Representant1Name}"
+            "Que tengas un lindo día ${serviceProvider1Rep1Name}"
           ]
         }
       ]
@@ -1252,7 +1252,7 @@
           "inputContext": ["user_signed_in", "vobo_solicitant_invoice_auth"],  
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "${server_serviceProvider1Representant1Name} nos indica que ha completado/entregado el servicio contratado" ,
+            "${server_serviceProvider1Rep1Name} nos indica que ha completado/entregado el servicio contratado" ,
             "Por favor da tu visto bueno para confirmar que el servicio ha sido prestado conforme al contrato para poder liberar el pago de: ${serviceProvider1Name}?",
             "Revisa la factura en éste link: www.profuturo.mx/contract9q8672e9087/factura",
             "Escribe listo para generar tu VOBO juntos ;)"
