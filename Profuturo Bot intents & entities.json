@@ -969,7 +969,7 @@
             "quiero dar mi vo bueno",
             "quiero dar mi vistobueno",
             "quiero dar mi vistobo",
-            "quiero dar mi vobueno",     
+            "quiero dar mi vobueno"  
           ],
           "response": [
             "Perfecto",
@@ -1403,11 +1403,11 @@
       "entityValues": [
         {
           "value": "SEIF",
-          "utterances": ["SEIF blockchain", "seif"]
+          "synonyms": ["SEIF blockchain", "seif"]
         },
         {
           "value": "Uber",
-          "utterances": ["uber taxi", "uber"]
+          "synonyms": ["uber taxi", "uber"]
         }
       ]
     },
@@ -1415,7 +1415,7 @@
       "entityValues": [
         {
           "value": "inovación",
-          "utterances": [
+          "synonyms": [
             "inno",
             "innovación",
             "innovación",
@@ -1425,7 +1425,7 @@
         },
         {
           "value": "finanzas",
-          "utterances": [
+          "synonyms": [
             "finanzas",
             "finances",
             "fin",
@@ -1436,7 +1436,7 @@
         },
         {
           "value": "control internos",
-          "utterances": [
+          "synonyms": [
             "CI",
             "Control",
             "control internos",
@@ -1445,21 +1445,23 @@
         },
         {
           "value": "dirección administrativa",
-          "utterances": ["dirección", "dir admin", "dir", "admin"]
+          "synonyms": ["dirección", "dir admin", "dir", "admin"]
         }
       ]
     },
     { "entity": "RFC",
+      "type": "KIND_REGEXP",
       "entityValues": [
         {
-          "value": "/^([A-ZÑ&]{3,4}) ?(?:- ?)?(//d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]//d|3[01])) ?(?:- ?)?([A-Z//d]{2})([A//d])$/"
+          "value": "^([A-ZÑ&]{3,4}) ?(?:- ?)?(\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01])) ?(?:- ?)?([A-Z\\d]{2})([A\\d])$"
         }
       ]
     },
     { "entity": "code2FA",
+      "type": "KIND_REGEXP",
       "entityValues": [
         {
-          "value": "regex 5 chiffres"
+          "value": "\\d{4,5}"
         }
       ]
     }
