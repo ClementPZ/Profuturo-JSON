@@ -26,7 +26,7 @@
             {
               "prompt": "Claro ¿podrías escribir su número de telefono?",
               "entityName": "solicitante_number",
-              "entity": "sys.phone_number",
+              "entity": "sys.phone-number",
               "list": false
             }
           ],
@@ -58,7 +58,7 @@
           {
             "prompt": "Por favor escribe el teléfono del representante del área ${server_areaName}",
             "entityName": "area_representant_phone",
-            "entity": "sys.phone_number",
+            "entity": "sys.phone-number",
             "list": false
           }],
           "response": [
@@ -105,7 +105,14 @@
         { "intentName": "greetings",
           "training": ["//> init flujo del intento ${intentName}"],
           "response": [
-            "Hola, por razones de seguridad debo identificarte primero",
+            "Hola ${userName}, por razones de seguridad debo identificarte primero",
+            "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
+          ]
+        },
+        { "intentName": "greetings_first",
+          "training": ["//> Greeting Second step"],
+          "response": [
+            "Hola ${userName}, por razones de seguridad debo identificarte primero",
             "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
           ]
         },
@@ -311,25 +318,31 @@
             {
               "prompt": "Por favor escribe tu(s) nombre(s)",
               "entityName": "userName",
-              "entity": "sys.given_name",
+              "entity": "sys.given-name",
               "list": true
             },
             {
-              "prompt": "Gracias ${userName}, ahora escribe tu apellido paterno",
+              "prompt": "Gracias  $userName[0], ahora escribe tu apellido paterno",
               "entityName": "userLastName1",
-              "entity": "sys.last_name",
+              "entity": "sys.last-name",
               "list": false
             },
             {
               "prompt": "Y tu apellido materno?",
               "entityName": "userLastName2",
-              "entity": "sys.last_name",
+              "entity": "sys.last-name",
               "list": false
             }
           ],
           "response": [
             "Muchas gracias",
             "//> init flujo del intento user_onboarding.get_user_contacts"
+          ],
+          "outputContext": [
+            {
+              "name": "conversation_params",
+              "lifespanCount": "30"
+            }
           ]
         },
         { "intentName": "get_user_contacts",
@@ -405,7 +418,7 @@
             {
               "prompt": "¿Para qué área trabajas?",
               "entityName": "userArea",
-              "entity": "companyArea",
+              "entity": "userArea",
               "list": false
             }
           ],
@@ -737,7 +750,7 @@
             {
               "prompt": "Por favor escribe el nombre del representante legal",
               "entityName": "serviceProvider1Rep1Name",
-              "entity": "sys.given_name",
+              "entity": "sys.given-name",
               "list": true
             }
           ],
@@ -777,7 +790,7 @@
             {
               "prompt": "Para poder seguir con tu solicitud, por favor escribe el número de teléfono mobil del contacto",
               "entityName": "serviceProvider1Rep1Phone",
-              "entity": "sys.phone_number",
+              "entity": "sys.phone-number",
               "list": false
             }
           ],
@@ -1404,6 +1417,10 @@
         {
           "value": "SEIF",
           "synonyms": ["SEIF blockchain", "seif"]
+        },
+        {
+          "value": "Profuturo",
+          "synonyms": ["Profu", "pr0futuro", "pr0futur0", "profuituro"]
         },
         {
           "value": "Uber",
