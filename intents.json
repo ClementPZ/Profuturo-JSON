@@ -17,9 +17,13 @@
     "OK, he reiniciado el sistema: debes añadir de nuevo a los solicitantes y represantantes de cada area (son 3)",
     "Para empezar, escribe hola"
   ],
-  "sign_in.greetings": [
-    "Hola ${userName}, por razones de seguridad debo identificarte primero",
+  "sign_in.greetings_vobo": [
     "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
+  ],
+  "sign_in.last_step_vobo": [
+    "Gracias, estoy confirmando tu identidad",
+    "Todos los procesos que creas conmigo están protegidos y encriptados en blockchain SEIF® ;)",
+    "//> siguiente paso después del sign in"
   ],
   "sign_in.greetings_first": [
     "Hola ${userName}, por razones de seguridad debo identificarte primero",
@@ -28,7 +32,8 @@
   "sign_in.user_selfie": [
     "Gracias, estoy confirmando tu identidad",
     "Hola ${userName}, un gusto verte de nuevo",
-    "Todos los procesos que creas conmigo están protegidos y encriptados en blockchain SEIF® ;)"
+    "Todos los procesos que creas conmigo están protegidos y encriptados en blockchain SEIF® ;)",
+    ""
   ],
   "vobo.start_vobo": [
     "Muy bien, enviaré un código por SMS para confirmar tu VOBO",
@@ -135,7 +140,7 @@
   ],
   "solicitud_creation_path.solicitud_aprovement": [
     "Ahora verifico que todos los documentos necesarios para tu solicitud estén completos",
-    "Listo! La propuesta de ${serviceProvider1Name} ha sido registrada para una prestación de servicio de: ${serviceDescripcion} con fecha limite ${serviceDeadline}",
+    "Listo! La propuesta de ${serviceProvider1Name} ha sido registrada para una prestación de servicio de: ${serviceDescription} con fecha limite ${serviceDeadline}",
     "Por favor confirma que toda la información es correcta"
   ],
   "solicitud_creation_path.solicitud_outro": [
@@ -145,10 +150,10 @@
   ],
   "blacklist_upload.notification_user_blacklist": [
     "Hola ${server_userControlInterno}, se ha creado una nueva solicitud de servicio que necesita tu revisión",
-    "//> Buenos días"
+    "//> init flujo del intento sign_in.greetings_vobo"
   ],
   "blacklist_upload.instruction_user_blacklist": [
-    "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProvider1Name}",
+    "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${server_serviceProvider1Name}",
     "Aún no contamos con la verificación en listas negras corespondientes",
     "Por favor envíame por esté medio los documentos y evidencias"
   ],
