@@ -1,72 +1,72 @@
 {
   "conversation_utils.invite_to_bot": [
-    "Muchas gracias, le acabo de enviar la invitación para registrarse :)"
+    "Muchas gracias, he enviado la invitación para registrarse :)"
   ],
   "conversation_utils.onboard_tecnical_team_intro": [
-    "Necesito los números de teléfono de los usuarios que participarán en el demo, necesitamos 3 usuarios ademas de tí",
+    "Necesito los números de teléfono de los usuarios que participarán en el demo, necesitamos 3 usuarios además de tí",
     "//> init flujo del intento onboard_tecnical_team_contact_information"
   ],
   "conversation_utils.onboard_tecnical_team_contact_information": [
-    "Gracias, se enviará una invitación a registrarse a todos los participantes"
+    "Gracias, se enviará una invitación a todos los participantes para registrarse"
   ],
   "conversation_utils.reset": [
     "Entendido, borraré la conversación y reiniciaré el proceso",
     "Para empezar demo de nuevo, escribe hola :)"
   ],
   "conversation_utils.hard_reset": [
-    "OK, he reiniciado el sistema: debes añadir de nuevo a los solicitantes y represantantes de cada area (son 3)",
+    "OK, he reiniciado el sistema: por favor añade de nuevo a los solicitantes y represantantes de cada area (son 3)",
     "Para empezar, escribe hola"
   ],
   "sign_in.greetings": [
-    "Hola ${userName}, por razones de seguridad debo identificarte primero",
+    "¡Hola ${userName}!, por razones de seguridad debo identificarte primero",
     "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
   ],
   "sign_in.greetings_first": [
-    "Hola ${userName}, por razones de seguridad debo identificarte primero",
+    "¡Hola ${userName}!, por razones de seguridad debo identificarte primero",
     "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
   ],
   "sign_in.user_selfie": [
-    "Gracias, estoy confirmando tu identidad",
-    "Hola ${userName}, un gusto verte de nuevo",
-    "Todos los procesos que creas conmigo están protegidos y encriptados en blockchain SEIF® ;)"
+    "¡Gracias ${userName}!, estoy confirmando tu identidad",
+    "¡Hola ${userName}, un gusto verte de nuevo!",
+    "Todos los procesos que creas conmigo están protegidos y encriptados en Blockchain con SEIF® ;)"
   ],
   "vobo.start_vobo": [
     "Muy bien, enviaré un código por SMS para confirmar tu VOBO",
     "Por favor escribe el código para confirmar tu VOBO"
   ],
   "vobo.2FA_auth_vobo": [
-    "Muchas gracias, has sido autenticado con éxito y tu VOBO ha sido validado y registrado también :)"
+    "Muchas gracias, has sido verificado con éxito y tu VOBO ha sido validado y registrado también :)"
   ],
   "sign.greetings": [
-    "Envié un código por SMS para autenticar tu firma",
-    "Por favor, escribe el código para autenticar tu firma"
+    "Envié un código por SMS para verificar tu firma",
+    "Por favor, escribe el código para verificar tu firma"
   ],
   "sign.2FA_auth_vobo": [
-    "Muchas gracias, has sido autenticado con éxito y tu firma ha sido registrada :)",
+    "Muchas gracias, has sido verificado con éxito y tu firma ha sido registrada :)",
     "//> siguiente paso del sign_vobo"
   ],
   "greetings.greetings": ["//> Greeting Second step"],
   "user_onboarding.greetings_onboarding": [
     "Hola, soy Barnabet la asistante virtual de Profuturo",
-    "Mi misión es ayudarte a agilizar y proteger tus trámites con nosotros, a través de está conversación y blockchain SEIF, sientete en seguridad conmigo :)",
+    "Mi misión es ayudarte a agilizar tus trámites con nosotros de forma segura a partir de ésta conversación. Toda tu información será protegida con encriptación y la tecnología blockchain SEIF :)",
     "Antes de seguir, necesitas registrarte",
     "¿Empezamos?"
   ],
   "user_onboarding.get_user_basics": [
-    "Muchas gracias",
+    "¡Muchas gracias!",
     "//> init flujo del intento user_onboarding.get_user_contacts"
   ],
   "user_onboarding.get_user_contacts": [
-    "Muchas gracias :)",
+    "¡Muchas gracias! :)",
     "//> init flujo del intento user_onboarding.get_user_docs"
   ],
   "user_onboarding.get_user_docs": [
-    "Listo hemos terminado tu validación y registro personal, muchas gracias",
+    "¡Listo, hemos terminado tu validación y registro, muchas gracias!",
     "//> init flujo del intento user_onboarding.get_user_company"
   ],
   "user_onboarding.get_user_company": ["Muchas gracias"],
   "user_onboarding.get_company_infos_internUser": [
-    "Muchas gracias",
+    "¡Muchas gracias!",
     "Vamos a confirmar tu registro, necesito una foto tuya tomada en los siguientes 2 minutos",
     "Utilizaré esa foto para hacer un reconocimiento facial e identificarte siempre que requieras mis servicios",
     "//> init flujo del intento user_onboarding.get_user_picture"
@@ -82,11 +82,11 @@
     "//> init flujo del intento user_onboarding.get_user_picture"
   ],
   "user_onboarding.get_user_picture": [
-    "Muchas gracias, te ves bien! ;)",
+    "¡Muchas gracias, te ves bien! ;)",
     "//> init flujo del intento authentication.2FA_generic_init"
   ],
   "user_onboarding.cloture_onboarding": [
-    "Excelente ${userName}, te he registrado en mis contactos",
+    "¡Excelente ${userName}!, te he registrado en mis contactos",
     "Quedo a tus órdenes para cualquier cosa adicional que necesites"
   ],
   "authentication.2FA_generic_init": [
@@ -95,18 +95,18 @@
   ],
   "authentication.2FA_generic_confirmation": ["Por favor escribe el código"],
   "authentication.2FA_generic_authenticate": [
-    "Perfecto, el código es correcto",
+    "¡Super, tu código es correcto!",
     "//> autenticado, siguiente paso"
   ],
   "solicitud_creation_path.solicitud_intro": [
     "Entendido, necesitaré que tengas lista la siguiente información:",
-    "Puedes comprobar esta información en el link www.doc.profuturo.mx",
+    "Puedes comprobar esta información en el link doc.profuturo.mx",
     "Descripción y justificación del servicio",
     "Razón social, RFC, contactos y propuesta del proveedor que quieres contratar",
     "¿Empezamos?"
   ],
   "solicitud_creation_path.get_solicitud_infos": [
-    "Muy bien, qué tipo de servicio quieres contratar?",
+    "Muy bien, ¿qué tipo de servicio quieres contratar?",
     "Por ejemplo, servicio de prestación de servicios"
   ],
   "solicitud_creation_path.get_solicitud_infos_serviceType": [
@@ -114,11 +114,11 @@
     "//> init flujo del intento solicitud_creation_path.get_solicitud_infos_serviceDescription"
   ],
   "solicitud_creation_path.get_solicitud_infos_serviceDescription": [
-    "Gracias",
-    "¿cuál es la fecha límite para recibir la prestación de éste servicio?"
+    "¡Gracias!",
+    "¿Cuál es la fecha límite para recibir la prestación de éste servicio?"
   ],
   "solicitud_creation_path.get_solicitud_infos_serviceDeadLine": [
-    "Muchas gracias, te confirmo tu solicitud para el servicio de: ${serviceDescription}, tipo de servicio: ${serviceType} con fecha límite para: ${serviceDeadline}",
+    "¡Muchas gracias!, te confirmo tu solicitud para el servicio de: ${serviceDescription}, tipo de servicio: ${serviceType} con fecha límite para: ${serviceDeadline}",
     "Por favor escribe la razón social del proveedor, RFC y número telefónico del contacto"
   ],
   "solicitud_creation_path.search_service_provider": [
@@ -135,28 +135,28 @@
   ],
   "solicitud_creation_path.solicitud_aprovement": [
     "Ahora verifico que todos los documentos necesarios para tu solicitud estén completos",
-    "Listo! La propuesta de ${serviceProvider1Name} ha sido registrada para una prestación de servicio de: ${serviceDescripcion} con fecha limite ${serviceDeadline}",
+    "¡Listo! La propuesta de ${serviceProvider1Name} ha sido registrada para una prestación de servicio de: ${serviceDescripcion} con fecha limite ${serviceDeadline}",
     "Por favor confirma que toda la información es correcta"
   ],
   "solicitud_creation_path.solicitud_outro": [
-    "Perfecto, el id de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
+    "¡Perfecto!, el id de registro en blockchain para tu solicitud es el: ${server_solicitudHashID}",
     "Muchas gracias, te mantendré al tanto de los siguientes pasos ;)",
     "Rastrea tu solicitud con esté link: ${server_solitudTrackingDashboard}"
   ],
   "blacklist_upload.notification_user_blacklist": [
-    "Hola ${server_userControlInterno}, se ha creado una nueva solicitud de servicio que necesita tu revisión",
+    "¡Hola ${server_userControlInterno}!, se ha creado una nueva solicitud de servicio que necesita tu revisión",
     "//> Buenos días"
   ],
   "blacklist_upload.instruction_user_blacklist": [
-    "${server_solicitudOwner} creo una solicitud de prestación de servicio para: ${serviceProvider1Name}",
-    "Aún no contamos con la verificación en listas negras corespondientes",
-    "Por favor envíame por esté medio los documentos y evidencias"
+    "${server_solicitudOwner} creó una solicitud de prestación de servicio para: ${serviceProvider1Name}",
+    "Por favor busca y verifica al candidato en las listas negras corespondientes",
+    "Sube en está conversación los documentos y evidencias por favor"
   ],
   "blacklist_upload.doc_user_blacklist": [
-    "Muchas gracias, que tengas un lindo día! :)"
+    "¡Muchas gracias, que tengas un lindo día! :)"
   ],
   "vobo_contract_solicitant.notification_solicitant_vobo_contract": [
-    "Hola ${server_solicitudOwner}, tengo nuevas noticias sobre tu solicitud de prestación de servicio :)",
+    "¡Hola ${server_solicitudOwner}!, tengo nuevas noticias sobre tu solicitud de prestación de servicio :)",
     "Por motivos de seguridad, necesito autenticarte para poder brindarte más información",
     "Por favor envía una foto tuya tomada en los siguientes 2 minutos"
   ],
@@ -171,10 +171,10 @@
     "//> init flujo del intento vobo.start_vobo"
   ],
   "vobo_contract_solicitant.vobo_solicitant_contract_outro": [
-    "Listo, tu visto bueno ha sido registrado con el nº X"
+    "¡Listo!, tu visto bueno ha sido registrado con el nº X"
   ],
   "finanzas_sign_contract.notification_finanzas_sign_contract": [
-    "Hola ${server_userFinanzas}, necesito la revisión y firma de un contrato de tu parte",
+    "¡Hola ${server_userFinanzas}!, necesito tu revisión y firma para una contratación",
     "//> Buenos Días"
   ],
   "finanzas_sign_contract.instruction_finanzas_sign_contract": [
@@ -184,11 +184,11 @@
     "Escribe listo para firmar el contrato :)"
   ],
   "finanzas_sign_contract.finanzas_sign_contract": [
-    "Perfecto",
+    "¡Perfecto!",
     "//> init flujo del intento sign.greeetings"
   ],
   "finanzas_sign_contract.finanzas_sign_contract_outro": [
-    "Quedo a tus órdenes para cualquier cosa, que tengas un lindo dia"
+    "Quedo a tus órdenes para cualquier cosa, ¡que tengas un lindo dia!"
   ],
   "proveedor_sign_contract.notification_proveedor_sign_contract": [
     "${server_serviceProvider}, tengo noticias sobre tu contrato con Profuturo :)",
@@ -200,51 +200,51 @@
     "Escribe listo para firmar ;)"
   ],
   "proveedor_sign_contract.proveedor_sign_contract": [
-    "Perfecto",
+    "¡Perfecto!",
     "//> init flujo del intento sign.greetings"
   ],
   "proveedor_sign_contract.proveedor_sign_contract_outro": [
-    "Quedo a tus órdenes para cualquier cosa, que tengas un lindo día"
+    "Quedo a tus órdenes para cualquier cosa, ¡que tengas un lindo día!"
   ],
   "proveedor_confirm_service_and_send_invoice.proveedor_confirm_service_intro": [
-    "Hola ${serviceProvider1Rep1Name}, con gusto te ayudo con eso :)",
-    "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información",
+    "¡Hola ${serviceProvider1Rep1Name}, con gusto te ayudo con eso! :)",
+    "Por motivos de seguridad, necesito verificarte para poder brindarte más información",
     "//> init flujo del intento sign_in.user_selfie"
   ],
   "proveedor_confirm_service_and_send_invoice.proveedor_confirm_service_ask": [
     "Por favor confirma que el servicio ha sido prestado como está indicado en tu contrato con Profuturo"
   ],
   "proveedor_confirm_service_and_send_invoice.proveedor_confirm_service_answer": [
-    "Gracias, ahora sube el archivo .xml de tu factura para validarla"
+    "¡Gracias!, ahora sube el archivo .xml de tu factura para validarla"
   ],
   "proveedor_confirm_service_and_send_invoice.proveedor_upload_invoice": [
-    "Gracias, voy avisando al área financiera de Profuturo, recibirás tu pago en menos de 15 días hábiles :)",
+    "¡Gracias!, el área financiera de Profuturo ya ha sido notificada, recibirás tu pago en menos de 15 días hábiles :)",
     "Estoy a tus órdenes y te recuerdo que puedes rastrear el estado de tu pago en éste link: www.profuturo.mx/dashboard/contract9782",
-    "Que tengas un lindo día ${serviceProvider1Rep1Name}"
+    "¡Que tengas un lindo día ${serviceProvider1Rep1Name}!"
   ],
   "solicitant_vobo_invoice.notification_vobo_solicitant_invoice": [
-    "Hola ${server_solicitudOwner}, tengo noticias de la prestación de servicio con: ${serviceProvider1Name}",
-    "Por motivos de seguridad, necesito primero registrarte para poder brindarte mas información",
+    "¡Hola ${server_solicitudOwner}!, tengo noticias de la prestación de servicio con: ${serviceProvider1Name}",
+    "Por motivos de seguridad, necesito primero registrarte para brindarte más información",
     "//> init flujo del intento sign_in.user_selfie"
   ],
   "solicitant_vobo_invoice.vobo_solicitant_invoice": [
-    "${server_serviceProvider1Rep1Name} nos indica que ha completado/entregado el servicio contratado",
-    "Por favor da tu visto bueno para confirmar que el servicio ha sido prestado conforme al contrato para poder liberar el pago de: ${serviceProvider1Name}?",
+    "${server_serviceProvider1Rep1Name} nos indica que ha prestado el servicio contratado",
+    "Por favor da tu visto bueno para confirmar que el servicio ha sido prestado conforme al contrato y liberar el pago de: ${serviceProvider1Name}?",
     "Revisa la factura en éste link: www.profuturo.mx/contract9q8672e9087/factura",
-    "Escribe listo para generar tu VOBO juntos ;)"
+    "Escribe listo para generar tu VOBO ;)"
   ],
   "solicitant_vobo_invoice.vobo_solicitant_invoice_signed": [
-    "Perfecto",
+    "¡Perfecto!",
     "//> init flujo del intento vobo.greetings"
   ],
   "solicitant_vobo_invoice.vobo_solicitant_invoice_outro": [
-    "Listo, tu visto bueno ha sido registrado con el nº X",
+    "¡Listo!, tu visto bueno ha sido registrado con el nº X",
     "Informaré al area de finanzas para liberar tu pago :)",
     "Gracias por tu ayuda, que tengas un lindo día"
   ],
   "finanzas_validate_payment.notification_finanzas_validate_payment ": [
-    "Hola ${server_userFinanzas}, necesitamos liberar un pago para un proveedor :)",
-    "Por motivos de seguridad, necesito autenticarte para poder brindarte mas información",
+    "¡Hola ${server_userFinanzas}!, necesitamos liberar un pago para un proveedor :)",
+    "Por motivos de seguridad, necesito autenticarte para poder brindarte más información",
     "//> init flujo del intento sign_in.user_selfie"
   ],
   "finanzas_validate_payment.instruction_finanzas_validate_payment": [
@@ -254,12 +254,12 @@
     "Escribe listo para liberar el pago :)"
   ],
   "finanzas_validate_payment.finanzas_validate_payment": [
-    "Perfecto",
+    "¡Perfecto!",
     "//> init flujo del intento sign.greetings"
   ],
   "finanzas_validate_payment.finanzas_validate_payment_outro": [
-    "Listo, el pago ha sido liberado con el número de transacción: 8768t6876t ",
-    "Ahora, notificaré al proveedor que su pago ha sido liberado :)",
-    "Muchas gracias por tu ayuda, que tengas un lindo día"
+    "¡Listo!, el pago ha sido liberado con el número de transacción: 8768t6876t ",
+    "Notificaré al proveedor que su pago ha sido liberado :)",
+    "¡Muchas gracias por tu ayuda, que tengas un lindo día!"
   ]
 }
